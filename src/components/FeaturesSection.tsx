@@ -102,7 +102,7 @@ export default function FeaturesSection() {
                   </p>
                 </div>
 
-                <div style={{ marginTop: 'auto', paddingTop: '12px', borderTop: '1px solid #1F2937' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px' }}>
                   <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px', color: '#10B981' }}>
                     {f.stat}
                   </span>

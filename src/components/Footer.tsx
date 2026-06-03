@@ -24,7 +24,7 @@ export default function Footer() {
   }
 
   return (
-    <footer style={{ background: '#0a0a0a', borderTop: '1px solid #1F2937', padding: '48px 0 0' }}>
+    <footer style={{ background: '#0a0a0a', padding: '48px 0 0' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="grid md:grid-cols-3 gap-10 pb-12">
           {/* Column 1 — Brand */}
@@ -104,7 +104,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6"
-          style={{ borderTop: '1px solid #1F2937' }}
+          style={{ paddingTop: '24px' }}
         >
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#4B5563' }}>
             © 2025 CODFLIP · Built by{' '}

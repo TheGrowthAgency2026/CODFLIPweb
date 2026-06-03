@@ -23,11 +23,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(10,10,10,0.8)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid #1F2937' : 'none',
+        top: '40px',
+        background: scrolled ? 'rgba(10,10,10,0.85)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
       }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 h-16 flex items-center justify-between">
@@ -94,7 +94,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
-          style={{ background: 'rgba(10,10,10,0.95)', borderBottom: '1px solid #1F2937' }}
+          style={{ background: 'rgba(10,10,10,0.95)' }}
         >
           {navLinks.map((link) => (
             <a

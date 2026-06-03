@@ -15,15 +15,15 @@ const contactOptions = [
   {
     icon: Mail,
     title: 'Email us',
-    sub: 'hello@thegrowthagency.in',
-    link: { href: 'mailto:hello@thegrowthagency.in', label: 'hello@thegrowthagency.in' },
+    sub: 'support@thegrowthagency.in',
+    link: { href: 'mailto:support@thegrowthagency.in', label: 'support@thegrowthagency.in' },
   },
   {
     icon: MessageCircle,
     title: 'WhatsApp',
     sub: 'Chat with us on WhatsApp',
     link: {
-      href: 'https://wa.me/91?text=Hi%2C%20I%27m%20interested%20in%20CODFLIP%20for%20my%20Shopify%20store',
+      href: 'https://wa.me/919664200912?text=Hi%2C%20I%27m%20interested%20in%20CODFLIP%20for%20my%20Shopify%20store',
       label: '→ Chat on WhatsApp',
     },
   },
@@ -36,7 +36,7 @@ export default function ContactSection() {
   const [form, setForm] = useState({ storeName: '', name: '', email: '', volume: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
     await new Promise((r) => setTimeout(r, 1200))

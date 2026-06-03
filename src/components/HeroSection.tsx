@@ -41,7 +41,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: '#0a0a0a', paddingTop: '96px' }}
+      style={{ background: '#0a0a0a', paddingTop: '136px' }}
     >
       {/* Glow orb */}
       <div
@@ -135,15 +135,11 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-wrap gap-0 pt-8"
-              style={{ borderTop: '1px solid #1F2937' }}
+              className="flex flex-wrap gap-x-8 gap-y-4 pt-8"
             >
-              {metrics.map((m, i) => (
-                <div key={m.label} className="flex items-stretch">
+              {metrics.map((m) => (
+                <div key={m.label}>
                   <MetricItem {...m} />
-                  {i < metrics.length - 1 && (
-                    <div style={{ width: '1px', background: '#1F2937', margin: '4px 0', minHeight: '40px' }} />
-                  )}
                 </div>
               ))}
             </motion.div>

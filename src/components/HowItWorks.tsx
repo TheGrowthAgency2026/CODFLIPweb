@@ -106,7 +106,7 @@ export default function HowItWorks() {
                   {step.num}
                 </div>
                 {i < steps.length - 1 && (
-                  <div style={{ width: '1px', flex: 1, background: '#1F2937', minHeight: '48px', marginTop: '4px' }} />
+                  <div style={{ flex: 1, minHeight: '48px' }} />
                 )}
               </div>
 

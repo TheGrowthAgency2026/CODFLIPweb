@@ -21,7 +21,7 @@ export default function AgencySection() {
   return (
     <section
       className="py-24 px-6 md:px-12 lg:px-24"
-      style={{ background: '#111111', borderTop: '1px solid #1F2937', borderBottom: '1px solid #1F2937' }}
+      style={{ background: '#111111' }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

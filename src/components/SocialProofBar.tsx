@@ -17,7 +17,7 @@ export default function SocialProofBar() {
   return (
     <div
       className="w-full overflow-hidden"
-      style={{ background: '#111111', borderTop: '1px solid #1F2937', borderBottom: '1px solid #1F2937', padding: '20px 0' }}
+      style={{ background: '#111111', padding: '20px 0' }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 flex items-center gap-8">
         <p

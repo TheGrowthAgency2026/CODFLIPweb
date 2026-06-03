@@ -1,3 +1,4 @@
+import AgencyBanner from '@/components/AgencyBanner'
 import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
 import SocialProofBar from '@/components/SocialProofBar'
@@ -12,6 +13,7 @@ import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <main style={{ background: '#0a0a0a', position: 'relative', zIndex: 1 }}>
+      <AgencyBanner />
       <Navbar />
       <HeroSection />
       <SocialProofBar />
