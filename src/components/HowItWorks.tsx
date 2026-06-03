@@ -75,7 +75,7 @@ export default function HowItWorks() {
             HOW IT WORKS
           </p>
           <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', color: '#fff', lineHeight: 1.1 }}>
-            From order placed to<br />prepaid in 8 minutes.
+            From order placed to<br />prepaid in 2 minutes.
           </h2>
         </motion.div>
 

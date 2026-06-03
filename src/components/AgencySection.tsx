@@ -3,15 +3,8 @@
 import { motion } from 'framer-motion'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
-const agencyStats = [
-  { num: '50+', label: 'D2C brands served' },
-  { num: '₹100Cr+', label: 'GMV managed on Shopify' },
-  { num: '8 years', label: 'Building on Shopify' },
-]
-
 const bullets = [
   'Shopify development & custom apps',
-  'D2C performance marketing',
   'Conversion rate optimisation',
 ]
 
@@ -24,7 +17,7 @@ export default function AgencySection() {
       style={{ background: '#111111' }}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-2xl">
           {/* Left column */}
           <motion.div
             ref={ref}
@@ -70,28 +63,6 @@ export default function AgencySection() {
             </div>
           </motion.div>
 
-          {/* Right column — Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-            className="flex flex-col gap-4"
-          >
-            {agencyStats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-xl p-5"
-                style={{ background: '#0a0a0a', border: '1px solid #1F2937' }}
-              >
-                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '32px', fontWeight: 700, color: '#10B981', lineHeight: 1, marginBottom: '6px' }}>
-                  {s.num}
-                </div>
-                <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#9CA3AF' }}>
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
