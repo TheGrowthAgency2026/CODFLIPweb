@@ -97,7 +97,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
               style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '18px', color: '#9CA3AF', lineHeight: 1.7, maxWidth: '480px' }}
             >
-              CODFLIP scores every COD order for RTO risk, sends a targeted WhatsApp offer, and converts it to prepaid — automatically. You pay only when we flip.
+              CODFLIP scores every COD order for RTO risk, sends a targeted WhatsApp offer, and converts it to prepaid automatically. You pay only when we flip.
             </motion.p>
 
             {/* CTAs */}
@@ -116,7 +116,7 @@ export default function HeroSection() {
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
               >
-                Install on Shopify — Free
+                Install on Shopify, Free
                 <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
               <a

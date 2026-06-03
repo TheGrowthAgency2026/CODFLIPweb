@@ -88,7 +88,7 @@ export default function PricingSection() {
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#1F2937'; e.currentTarget.style.color = '#9CA3AF' }}
             >
-              Get started — free
+              Get started free
             </a>
           </motion.div>
 

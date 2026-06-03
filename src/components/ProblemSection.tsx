@@ -53,7 +53,7 @@ export default function ProblemSection() {
               </p>
               <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: '#9CA3AF', lineHeight: 1.8 }}>
                 A ₹10L/month brand with 30% RTO loses ₹50,000 every single month.
-                That&apos;s ₹6 lakh a year — quietly draining your margins.
+                That&apos;s ₹6 lakh a year quietly draining your margins.
               </p>
             </div>
 

@@ -9,7 +9,7 @@ const contactOptions = [
   {
     icon: ExternalLink,
     title: 'Install on Shopify',
-    sub: 'Start free — no credit card needed',
+    sub: 'Start free, no credit card needed',
     link: { href: 'https://apps.shopify.com/codflip', label: '→ Install CODFLIP on Shopify' },
   },
   {

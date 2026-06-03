@@ -22,7 +22,7 @@ const steps = [
   {
     num: '03',
     title: 'WhatsApp sent',
-    body: 'The right offer — exact ₹ amount — goes to the customer\'s WhatsApp with a one-tap UPI payment link.',
+    body: 'The exact ₹ offer goes to the customer\'s WhatsApp with a one-tap UPI payment link.',
   },
   {
     num: '04',

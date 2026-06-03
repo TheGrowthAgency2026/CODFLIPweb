@@ -36,7 +36,7 @@ export default function AgencySection() {
 
             <div className="flex flex-col gap-3">
               <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: '#9CA3AF', lineHeight: 1.8 }}>
-                CODFLIP is built and maintained by The Growth Agency —
+                CODFLIP is built and maintained by The Growth Agency 
                 a performance-focused digital agency working with India&apos;s
                 top D2C brands on Shopify. We built this tool because our
                 clients needed it and nothing good enough existed.

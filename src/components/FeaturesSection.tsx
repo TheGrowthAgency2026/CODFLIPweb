@@ -9,14 +9,14 @@ const features = [
     icon: ArrowLeftRight,
     tag: 'CORE',
     title: 'COD to Prepaid',
-    body: 'Every COD order is scored for risk and propensity. Only high-risk orders get a targeted WhatsApp offer with the exact right incentive — not a flat discount to everyone.',
+    body: 'Every COD order is scored for risk and propensity. Only high-risk orders get a targeted WhatsApp offer with the exact right incentive, not a flat discount to everyone.',
     stat: '20%+ conversion rate vs 8–12% industry average',
   },
   {
     icon: TrendingDown,
     tag: 'ANALYTICS',
     title: 'RTO Cost Estimator',
-    body: 'Track the true ₹ cost of every RTO — forward shipping, reverse logistics, restocking. See exactly how much CODFLIP saved you this month, this week, today.',
+    body: 'Track the true ₹ cost of every RTO: forward shipping, reverse logistics, restocking. See exactly how much CODFLIP saved you this month, this week, today.',
     stat: '₹160–240 saved per prevented RTO',
   },
   {
@@ -30,7 +30,7 @@ const features = [
     icon: ShieldCheck,
     tag: 'SECURITY',
     title: 'OTP Login',
-    body: 'Customers log into your store with a WhatsApp OTP — no password needed. Eliminates fake accounts and unverified phone numbers from placing COD orders.',
+    body: 'Customers log into your store with a WhatsApp OTP, no password needed. Eliminates fake accounts and unverified phone numbers from placing COD orders.',
     stat: 'Eliminates fake COD orders at source',
   },
 ]
