@@ -54,13 +54,13 @@ const sections = [
 
 export default function PrivacyPolicy() {
   return (
-    <main style={{ background: '#0a0a0a', minHeight: '100vh', padding: '120px 24px 80px' }}>
+    <main style={{ background: 'var(--bg)', minHeight: '100vh', padding: '120px 24px 80px' }}>
       <div style={{ maxWidth: '720px', margin: '0 auto' }}>
 
         {/* Back */}
         <a
           href="/"
-          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#6B7280', display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '48px', textDecoration: 'none' }}
+          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-3)', display: 'inline-flex', alignItems: 'center', gap: '6px', marginBottom: '48px', textDecoration: 'none' }}
         >
           ← Back to home
         </a>
@@ -70,10 +70,10 @@ export default function PrivacyPolicy() {
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 600, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: '16px' }}>
             CODFLIP by The Growth Agency
           </p>
-          <h1 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', color: '#fff', lineHeight: 1.1, marginBottom: '12px' }}>
+          <h1 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', color: 'var(--text)', lineHeight: 1.1, marginBottom: '12px' }}>
             Privacy Policy
           </h1>
-          <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#4B5563' }}>
+          <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-4)' }}>
             Last updated: April 2026
           </p>
         </div>
@@ -82,10 +82,10 @@ export default function PrivacyPolicy() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
           {sections.map((s) => (
             <div key={s.num}>
-              <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '18px', color: '#fff', marginBottom: '10px' }}>
+              <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '18px', color: 'var(--text)', marginBottom: '10px' }}>
                 {s.num} {s.title}
               </h2>
-              <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: '#9CA3AF', lineHeight: 1.8 }}>
+              <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.8 }}>
                 {s.body}
               </p>
             </div>

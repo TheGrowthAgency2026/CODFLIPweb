@@ -24,7 +24,7 @@ function MetricItem({ value, suffix = '', prefix = '', label, display }: {
       <span className="metric-number" style={{ fontSize: '32px' }}>
         {display ?? `${prefix}${count}${suffix}`}
       </span>
-      <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#4B5563', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         {label}
       </span>
     </div>
@@ -40,8 +40,9 @@ const recentFlips = [
 export default function HeroSection() {
   return (
     <section
+      id="product"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: '#0a0a0a', paddingTop: '136px' }}
+      style={{ background: 'var(--bg)', paddingTop: '136px' }}
     >
       {/* Glow orb */}
       <div
@@ -53,7 +54,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
           zIndex: 0,
         }}
@@ -83,7 +84,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.08 }}
-                  style={{ display: 'inline-block', marginRight: '0.25em', color: word === '₹6L/year' ? '#10B981' : '#fff' }}
+                  style={{ display: 'inline-block', marginRight: '0.25em', color: word === '₹6L/year' ? '#10B981' : 'var(--text)' }}
                 >
                   {word}
                 </motion.span>
@@ -95,7 +96,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '18px', color: '#9CA3AF', lineHeight: 1.7, maxWidth: '480px' }}
+              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '18px', color: 'var(--text-2)', lineHeight: 1.7, maxWidth: '480px' }}
             >
               CODFLIP scores every COD order for RTO risk, sends a targeted WhatsApp offer, and converts it to prepaid automatically. You pay only when we flip.
             </motion.p>
@@ -122,15 +123,15 @@ export default function HeroSection() {
               <a
                 href="#how-it-works"
                 className="flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-200"
-                style={{ background: 'transparent', border: '1px solid #1F2937', color: '#fff', fontFamily: 'var(--font-dm-sans)', fontSize: '15px' }}
+                style={{ background: 'transparent', border: '1px solid var(--border)', color: 'var(--text)', fontFamily: 'var(--font-dm-sans)', fontSize: '15px' }}
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#1F2937'; e.currentTarget.style.color = '#fff' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text)' }}
               >
                 See how it works
               </a>
             </motion.div>
 
-            {/* Metrics Ticker */}
+            {/* Metrics */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -154,11 +155,11 @@ export default function HeroSection() {
           >
             <div
               className="rounded-2xl p-6"
-              style={{ background: '#111111', border: '1px solid #1F2937', boxShadow: '0 0 60px rgba(16,185,129,0.08)' }}
+              style={{ background: 'var(--bg-2)', border: '1px solid var(--border)', boxShadow: '0 0 60px rgba(16,185,129,0.08)' }}
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-5">
-                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: '#fff' }}>
+                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--text)' }}>
                   CODFLIP Dashboard
                 </span>
                 <span className="flex items-center gap-1.5 px-2 py-1 rounded-full" style={{ background: 'rgba(16,185,129,0.1)', fontSize: '11px', color: '#10B981', fontFamily: 'var(--font-dm-sans)' }}>
@@ -174,22 +175,22 @@ export default function HeroSection() {
                   { num: '23%', label: 'Flip Rate' },
                   { num: '14', label: 'Converted' },
                 ].map((s) => (
-                  <div key={s.label} className="rounded-xl p-3" style={{ background: '#141414' }}>
+                  <div key={s.label} className="rounded-xl p-3" style={{ background: 'var(--bg-3)' }}>
                     <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '15px', fontWeight: 700, color: '#10B981' }}>{s.num}</div>
-                    <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#4B5563', marginTop: '2px' }}>{s.label}</div>
+                    <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', marginTop: '2px' }}>{s.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Bar chart */}
               <div className="mb-5">
-                <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#4B5563', marginBottom: '8px' }}>Last 7 days</div>
+                <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', marginBottom: '8px' }}>Last 7 days</div>
                 <div className="flex items-end gap-1.5" style={{ height: '48px' }}>
                   {[30, 45, 38, 55, 42, 70, 85].map((h, i) => (
                     <div
                       key={i}
                       className="flex-1 rounded-sm"
-                      style={{ height: `${h}%`, background: i >= 4 ? '#10B981' : '#1F2937' }}
+                      style={{ height: `${h}%`, background: i >= 4 ? '#10B981' : 'var(--border)' }}
                     />
                   ))}
                 </div>
@@ -197,7 +198,7 @@ export default function HeroSection() {
 
               {/* Recent flips */}
               <div>
-                <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#4B5563', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   Recent flips
                 </div>
                 <div className="flex flex-col gap-2">
@@ -208,15 +209,15 @@ export default function HeroSection() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 1 + i * 0.15, duration: 0.4 }}
                       className="flex items-center justify-between rounded-lg px-3 py-2"
-                      style={{ background: '#141414', borderLeft: '2px solid #10B981' }}
+                      style={{ background: 'var(--bg-3)', borderLeft: '2px solid #10B981' }}
                     >
                       <div className="flex items-center gap-2">
                         <span className="pulse-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', display: 'inline-block', flexShrink: 0 }} />
-                        <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: '#9CA3AF' }}>Order {flip.order}</span>
+                        <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-2)' }}>Order {flip.order}</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px', color: '#10B981' }}>{flip.amount}</span>
-                        <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#4B5563' }}>{flip.time}</span>
+                        <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)' }}>{flip.time}</span>
                       </div>
                     </motion.div>
                   ))}

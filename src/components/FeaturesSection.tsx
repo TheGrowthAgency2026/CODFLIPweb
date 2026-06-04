@@ -39,9 +39,8 @@ export default function FeaturesSection() {
   const { ref, isInView } = useScrollReveal()
 
   return (
-    <section id="features" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: '#0a0a0a' }}>
+    <section id="features" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: 'var(--bg)' }}>
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -52,12 +51,11 @@ export default function FeaturesSection() {
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 500, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '16px' }}>
             FEATURES
           </p>
-          <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 3.5vw, 48px)', color: '#fff', maxWidth: '600px', lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 3.5vw, 48px)', color: 'var(--text)', maxWidth: '600px', lineHeight: 1.1 }}>
             Everything you need to stop RTO before it ships.
           </h2>
         </motion.div>
 
-        {/* Cards grid */}
         <div className="grid md:grid-cols-2 gap-5">
           {features.map((f, i) => {
             const Icon = f.icon
@@ -67,14 +65,14 @@ export default function FeaturesSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.12 }}
-                className="rounded-2xl p-7 flex flex-col gap-4 cursor-default group"
-                style={{ background: '#111111', border: '1px solid #1F2937', transition: 'all 0.25s ease' }}
+                className="rounded-2xl p-7 flex flex-col gap-4 cursor-default"
+                style={{ background: 'var(--bg-2)', border: '1px solid var(--border)', transition: 'all 0.25s ease' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)'
                   e.currentTarget.style.transform = 'translateY(-2px)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#1F2937'
+                  e.currentTarget.style.borderColor = 'var(--border)'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}
               >
@@ -94,10 +92,10 @@ export default function FeaturesSection() {
                 </div>
 
                 <div>
-                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '20px', fontWeight: 700, color: '#fff', marginBottom: '8px' }}>
+                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '20px', fontWeight: 700, color: 'var(--text)', marginBottom: '8px' }}>
                     {f.title}
                   </h3>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: '#9CA3AF', lineHeight: 1.65 }}>
+                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.65 }}>
                     {f.body}
                   </p>
                 </div>

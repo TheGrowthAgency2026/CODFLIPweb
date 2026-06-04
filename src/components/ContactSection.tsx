@@ -44,10 +44,10 @@ export default function ContactSection() {
   }
 
   const inputStyle: React.CSSProperties = {
-    background: '#111111',
-    border: '1px solid #1F2937',
+    background: 'var(--bg)',
+    border: '1px solid var(--border)',
     borderRadius: '8px',
-    color: '#fff',
+    color: 'var(--text)',
     padding: '12px 16px',
     fontFamily: 'var(--font-dm-sans)',
     fontSize: '14px',
@@ -60,13 +60,13 @@ export default function ContactSection() {
     fontFamily: 'var(--font-dm-sans)',
     fontSize: '13px',
     fontWeight: 500,
-    color: '#9CA3AF',
+    color: 'var(--text-2)',
     marginBottom: '6px',
     display: 'block',
   }
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: '#111111' }}>
+    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: 'var(--bg-2)' }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left column */}
@@ -81,7 +81,7 @@ export default function ContactSection() {
               <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 500, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '16px' }}>
                 GET IN TOUCH
               </p>
-              <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', color: '#fff', lineHeight: 1.1 }}>
+              <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', color: 'var(--text)', lineHeight: 1.1 }}>
                 Ready to stop<br />your RTO losses?
               </h2>
             </div>
@@ -93,14 +93,14 @@ export default function ContactSection() {
                   <div
                     key={opt.title}
                     className="rounded-xl px-5 py-4 flex items-start gap-4 transition-all duration-200"
-                    style={{ background: '#0a0a0a', border: '1px solid #1F2937' }}
+                    style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}
                     onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'rgba(16,185,129,0.3)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1F2937')}
+                    onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
                   >
                     <Icon size={20} color="#10B981" className="mt-0.5 shrink-0" />
                     <div>
-                      <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, color: '#fff', marginBottom: '2px' }}>{opt.title}</p>
-                      <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#9CA3AF', marginBottom: '4px' }}>{opt.sub}</p>
+                      <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, color: 'var(--text)', marginBottom: '2px' }}>{opt.title}</p>
+                      <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)', marginBottom: '4px' }}>{opt.sub}</p>
                       <a
                         href={opt.link.href}
                         target="_blank"
@@ -123,88 +123,61 @@ export default function ContactSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           >
-            <div className="rounded-2xl p-8" style={{ background: '#0a0a0a', border: '1px solid #1F2937' }}>
+            <div className="rounded-2xl p-8" style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
               {status === 'success' ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                   <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(16,185,129,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <span style={{ fontSize: '28px', color: '#10B981' }}>✓</span>
                   </div>
-                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '22px', fontWeight: 700, color: '#fff' }}>Message sent!</h3>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: '#9CA3AF' }}>We&apos;ll reply within 24 hours.</p>
+                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '22px', fontWeight: 700, color: 'var(--text)' }}>Message sent!</h3>
+                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-2)' }}>We&apos;ll reply within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div>
                     <label style={labelStyle}>Store Name <span style={{ color: '#10B981' }}>*</span></label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Shopify store name"
-                      value={form.storeName}
-                      onChange={(e) => setForm({ ...form, storeName: e.target.value })}
-                      style={inputStyle}
+                    <input type="text" required placeholder="Your Shopify store name" value={form.storeName}
+                      onChange={(e) => setForm({ ...form, storeName: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = '#1F2937'; e.target.style.boxShadow = 'none' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
-
                   <div>
                     <label style={labelStyle}>Your Name <span style={{ color: '#10B981' }}>*</span></label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Rahul Sharma"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      style={inputStyle}
+                    <input type="text" required placeholder="Rahul Sharma" value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = '#1F2937'; e.target.style.boxShadow = 'none' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
-
                   <div>
                     <label style={labelStyle}>Email <span style={{ color: '#10B981' }}>*</span></label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="you@store.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      style={inputStyle}
+                    <input type="email" required placeholder="you@store.com" value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = '#1F2937'; e.target.style.boxShadow = 'none' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
-
                   <div>
                     <label style={labelStyle}>Monthly COD orders</label>
-                    <select
-                      value={form.volume}
-                      onChange={(e) => setForm({ ...form, volume: e.target.value })}
+                    <select value={form.volume} onChange={(e) => setForm({ ...form, volume: e.target.value })}
                       style={{ ...inputStyle, cursor: 'pointer' }}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = '#1F2937'; e.target.style.boxShadow = 'none' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     >
-                      <option value="" style={{ background: '#111111' }}>Select volume</option>
-                      {orderVolumes.map((v) => (
-                        <option key={v} value={v} style={{ background: '#111111' }}>{v}</option>
-                      ))}
+                      <option value="">Select volume</option>
+                      {orderVolumes.map((v) => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </div>
-
                   <div>
                     <label style={labelStyle}>Message</label>
-                    <textarea
-                      rows={4}
-                      placeholder="Tell us about your store..."
-                      value={form.message}
+                    <textarea rows={4} placeholder="Tell us about your store..." value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       style={{ ...inputStyle, resize: 'vertical' }}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = '#1F2937'; e.target.style.boxShadow = 'none' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
-
                   <button
                     type="submit"
                     disabled={status === 'loading'}
@@ -220,9 +193,7 @@ export default function ContactSection() {
                         </svg>
                         Sending...
                       </>
-                    ) : (
-                      'Send Message →'
-                    )}
+                    ) : 'Send Message →'}
                   </button>
                 </form>
               )}

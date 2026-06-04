@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Sun, Moon } from 'lucide-react'
+import { useTheme } from './ThemeProvider'
 
 const navLinks = [
+  { label: 'Product', href: '#product' },
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Pricing', href: '#pricing' },
@@ -14,6 +16,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -26,7 +29,7 @@ export default function Navbar() {
       className="fixed left-0 right-0 z-50 transition-all duration-300"
       style={{
         top: '40px',
-        background: scrolled ? 'rgba(10,10,10,0.85)' : 'transparent',
+        background: scrolled ? 'var(--nav-bg)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
       }}
     >
@@ -39,7 +42,7 @@ export default function Navbar() {
             <text x="11" y="15" fontSize="8" fill="#10B981" fontWeight="bold">₹</text>
           </svg>
           <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '20px' }}>
-            <span className="text-white">COD</span>
+            <span style={{ color: 'var(--text)' }}>COD</span>
             <span style={{ color: '#10B981' }}>FLIP</span>
           </span>
         </a>
@@ -50,16 +53,36 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="transition-colors duration-200 hover:text-white"
-              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#9CA3AF' }}
+              className="transition-colors duration-200"
+              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-3)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-3)')}
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="hidden md:flex">
+        {/* Right side: theme toggle + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            className="flex items-center justify-center rounded-lg transition-all duration-200"
+            style={{
+              width: '36px',
+              height: '36px',
+              background: 'var(--bg-2)',
+              border: '1px solid var(--border)',
+              color: 'var(--text-2)',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#10B981'; e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-2)'; e.currentTarget.style.borderColor = 'var(--border)' }}
+          >
+            {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+
           <a
             href="https://apps.shopify.com/codflip"
             target="_blank"
@@ -80,29 +103,48 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden z-10 text-white"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        {/* Mobile: theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2 z-10">
+          <button
+            onClick={toggle}
+            aria-label="Toggle theme"
+            className="flex items-center justify-center rounded-lg"
+            style={{
+              width: '32px',
+              height: '32px',
+              background: 'var(--bg-2)',
+              border: '1px solid var(--border)',
+              color: 'var(--text-2)',
+              cursor: 'pointer',
+            }}
+          >
+            {theme === 'dark' ? <Sun size={13} /> : <Moon size={13} />}
+          </button>
+          <button
+            className="text-[color:var(--text)]"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div
           className="md:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
-          style={{ background: 'rgba(10,10,10,0.95)' }}
+          style={{ background: 'var(--nav-solid)' }}
         >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="py-2 transition-colors duration-200 hover:text-white"
-              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: '#9CA3AF' }}
+              className="py-2 transition-colors duration-200"
+              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-3)' }}
               onClick={() => setMobileOpen(false)}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-3)')}
             >
               {link.label}
             </a>

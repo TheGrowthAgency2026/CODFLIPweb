@@ -62,7 +62,7 @@ export default function HowItWorks() {
   }, [])
 
   return (
-    <section id="how-it-works" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: '#0a0a0a' }}>
+    <section id="how-it-works" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: 'var(--bg)' }}>
       <div className="max-w-3xl mx-auto">
         <motion.div
           ref={sectionRef}
@@ -74,12 +74,11 @@ export default function HowItWorks() {
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 500, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '16px' }}>
             HOW IT WORKS
           </p>
-          <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', color: '#fff', lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', color: 'var(--text)', lineHeight: 1.1 }}>
             From order placed to<br />prepaid in 2 minutes.
           </h2>
         </motion.div>
 
-        {/* Timeline */}
         <div className="flex flex-col">
           {steps.map((step, i) => (
             <div
@@ -87,7 +86,6 @@ export default function HowItWorks() {
               ref={(el) => { stepRefs.current[i] = el }}
               className="flex gap-6"
             >
-              {/* Left — step number + line */}
               <div className="flex flex-col items-center">
                 <div
                   className="flex items-center justify-center shrink-0"
@@ -110,12 +108,11 @@ export default function HowItWorks() {
                 )}
               </div>
 
-              {/* Right — content */}
               <div className="pb-10 flex-1">
-                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '20px', fontWeight: 700, color: '#fff', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '20px', fontWeight: 700, color: 'var(--text)', marginBottom: '8px' }}>
                   {step.title}
                 </h3>
-                <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: '#9CA3AF', lineHeight: 1.7 }}>
+                <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.7 }}>
                   {step.body}
                 </p>
               </div>

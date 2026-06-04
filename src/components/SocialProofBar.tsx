@@ -17,12 +17,12 @@ export default function SocialProofBar() {
   return (
     <div
       className="w-full overflow-hidden"
-      style={{ background: '#111111', padding: '20px 0' }}
+      style={{ background: 'var(--bg-2)', padding: '20px 0' }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 flex items-center gap-8">
         <p
           className="shrink-0"
-          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#4B5563', whiteSpace: 'nowrap' }}
+          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)', whiteSpace: 'nowrap' }}
         >
           Trusted by India&apos;s fastest-growing D2C brands
         </p>
@@ -31,7 +31,7 @@ export default function SocialProofBar() {
           <div className="marquee-track flex items-center gap-8 whitespace-nowrap">
             {items.map((brand, i) => (
               <span key={i} className="flex items-center gap-3">
-                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: '#6B7280' }}>
+                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--text-3)' }}>
                   {brand}
                 </span>
                 <span style={{ color: '#10B981', fontSize: '10px' }}>●</span>
