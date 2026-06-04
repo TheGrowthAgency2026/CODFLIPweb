@@ -11,7 +11,8 @@ const companyLinks = [
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
   { label: 'thegrowthagency.in', href: 'https://thegrowthagency.in' },
-  { label: 'Privacy Policy', href: '#' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms of Service', href: '/terms' },
 ]
 
 export default function Footer() {
@@ -119,15 +120,15 @@ export default function Footer() {
             </a>
           </p>
           <div className="flex items-center gap-5">
-            {['Privacy Policy', 'Terms'].map((t) => (
+            {[{ label: 'Privacy Policy', href: '/privacy-policy' }, { label: 'Terms', href: '/terms' }].map((l) => (
               <a
-                key={t}
-                href="#"
+                key={l.label}
+                href={l.href}
                 style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#4B5563', transition: 'color 0.2s' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#9CA3AF')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#4B5563')}
               >
-                {t}
+                {l.label}
               </a>
             ))}
           </div>
