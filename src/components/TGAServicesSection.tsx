@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, MessageCircle, TrendingUp, Target } from 'lucide-react'
+import { Code2, MessageCircle, TrendingUp } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const services = [
@@ -22,12 +22,6 @@ const services = [
     title: 'Conversion Optimisation',
     description: 'Deep funnel audits and systematic A/B testing across product pages, cart, and checkout. We find and fix what is silently killing your CVR.',
     tag: 'CRO · A/B Testing · Funnel Audits',
-  },
-  {
-    icon: Target,
-    title: 'Performance Marketing',
-    description: 'Meta and Google campaigns built around contribution margin, not just ROAS. We speak the language of profitable growth and build for the long run.',
-    tag: 'Meta · Google · D2C Growth',
   },
 ]
 
@@ -117,7 +111,7 @@ export default function TGAServicesSection() {
           })()}
 
           {/* Remaining 3 services — compact row */}
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 gap-5">
             {services.slice(1).map((service, i) => {
               const Icon = service.icon
               return (

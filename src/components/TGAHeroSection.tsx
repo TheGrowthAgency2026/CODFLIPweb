@@ -6,10 +6,9 @@ import { ArrowRight } from 'lucide-react'
 const stats = [
   { num: '50+', label: 'Agency clients' },
   { num: '₹100Cr+', label: 'GMV managed on Shopify' },
-  { num: '8+', label: 'Years building on Shopify' },
 ]
 
-const services = ['Shopify Development', 'WhatsApp Retention', 'CRO', 'Performance Marketing']
+const services = ['Shopify Development', 'WhatsApp Retention', 'CRO']
 
 export default function TGAHeroSection() {
   return (
