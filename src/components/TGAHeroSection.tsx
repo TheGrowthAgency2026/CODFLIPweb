@@ -3,11 +3,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
-const stats = [
-  { num: '50+', label: 'Agency clients' },
-  { num: '₹100Cr+', label: 'GMV managed on Shopify' },
-]
-
 const services = ['Shopify Development', 'WhatsApp Retention', 'CRO']
 
 export default function TGAHeroSection() {
@@ -118,24 +113,6 @@ export default function TGAHeroSection() {
           >
             See CODFLIP →
           </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="flex flex-wrap justify-center gap-x-12 gap-y-6 pt-8"
-        >
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '32px', fontWeight: 700, color: '#10B981', lineHeight: 1 }}>
-                {s.num}
-              </div>
-              <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-4)', marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>
