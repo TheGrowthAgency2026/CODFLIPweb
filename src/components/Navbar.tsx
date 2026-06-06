@@ -131,7 +131,7 @@ export default function Navbar() {
               onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
             >
-              Install Free
+              Install Free on Shopify
               <ArrowRight size={14} />
             </a>
           ) : (
@@ -142,7 +142,7 @@ export default function Navbar() {
               onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
               onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
             >
-              View CODFLIP
+              See CODFLIP
               <ArrowRight size={14} />
             </a>
           )}
@@ -194,7 +194,7 @@ export default function Navbar() {
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg mt-2"
               style={{ background: '#10B981', color: '#0a0a0a', fontFamily: 'var(--font-dm-sans)', fontSize: '15px', fontWeight: 500 }}
             >
-              Install Free
+              Install Free on Shopify
               <ArrowRight size={14} />
             </a>
           ) : (
@@ -203,7 +203,7 @@ export default function Navbar() {
               className="flex items-center justify-center gap-2 w-full py-3 rounded-lg mt-2"
               style={{ background: '#10B981', color: '#0a0a0a', fontFamily: 'var(--font-dm-sans)', fontSize: '15px', fontWeight: 500 }}
             >
-              View CODFLIP
+              See CODFLIP
               <ArrowRight size={14} />
             </a>
           )}

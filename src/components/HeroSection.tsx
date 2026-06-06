@@ -4,29 +4,17 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useCountUp } from '@/hooks/useCountUp'
 
-const metrics = [
-  { value: 35, suffix: '%', label: 'RTO DROP' },
-  { value: 31, suffix: '×', label: 'AVG ROI', display: '3.1×' },
-  { value: 160, prefix: '₹', label: 'SAVED/RTO' },
-  { value: 20, suffix: '%+', label: 'FLIP RATE' },
+const outcomes = [
+  { value: 35, suffix: '%', context: 'average RTO reduction' },
+  { value: 20, suffix: '%+', context: 'COD-to-prepaid conversion rate' },
 ]
 
-function MetricItem({ value, suffix = '', prefix = '', label, display }: {
-  value: number
-  suffix?: string
-  prefix?: string
-  label: string
-  display?: string
-}) {
+function OutcomeItem({ value, suffix, context }: { value: number; suffix: string; context: string }) {
   const { count, ref } = useCountUp(value, 2000)
   return (
-    <div ref={ref} className="flex flex-col gap-1 px-4 first:pl-0">
-      <span className="metric-number" style={{ fontSize: '32px' }}>
-        {display ?? `${prefix}${count}${suffix}`}
-      </span>
-      <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-        {label}
-      </span>
+    <div ref={ref} className="flex items-baseline gap-2">
+      <span className="metric-number" style={{ fontSize: '28px' }}>{count}{suffix}</span>
+      <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-3)', lineHeight: 1.3 }}>{context}</span>
     </div>
   )
 }
@@ -72,7 +60,7 @@ export default function HeroSection() {
             >
               <span className="badge-green">
                 <span className="pulse-dot" style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
-                Trusted by 200+ Indian D2C brands
+                200+ Shopify stores reducing RTO
               </span>
             </motion.div>
 
@@ -117,7 +105,7 @@ export default function HeroSection() {
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
               >
-                Install on Shopify, Free
+                Install Free on Shopify
                 <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
               </a>
               <a
@@ -131,18 +119,20 @@ export default function HeroSection() {
               </a>
             </motion.div>
 
-            {/* Metrics */}
+            {/* Outcomes */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="flex flex-wrap gap-x-8 gap-y-4 pt-8"
+              className="flex flex-col gap-3 pt-6 pl-1"
+              style={{ borderLeft: '1px solid var(--border)' }}
             >
-              {metrics.map((m) => (
-                <div key={m.label}>
-                  <MetricItem {...m} />
-                </div>
+              {outcomes.map((o) => (
+                <OutcomeItem key={o.context} {...o} />
               ))}
+              <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-4)', marginTop: '2px' }}>
+                Median across stores in the first 30 days · Pay 3% on successful flips only
+              </span>
             </motion.div>
           </div>
 
@@ -209,7 +199,7 @@ export default function HeroSection() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 1 + i * 0.15, duration: 0.4 }}
                       className="flex items-center justify-between rounded-lg px-3 py-2"
-                      style={{ background: 'var(--bg-3)', borderLeft: '2px solid #10B981' }}
+                      style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)' }}
                     >
                       <div className="flex items-center gap-2">
                         <span className="pulse-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', display: 'inline-block', flexShrink: 0 }} />

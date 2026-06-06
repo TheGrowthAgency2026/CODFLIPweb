@@ -135,32 +135,32 @@ export default function ContactSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div>
-                    <label style={labelStyle}>Store Name <span style={{ color: '#10B981' }}>*</span></label>
-                    <input type="text" required placeholder="Your Shopify store name" value={form.storeName}
+                    <label htmlFor="contact-store" style={labelStyle}>Store Name <span style={{ color: '#10B981' }}>*</span></label>
+                    <input id="contact-store" type="text" required placeholder="Your Shopify store name" value={form.storeName}
                       onChange={(e) => setForm({ ...form, storeName: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Your Name <span style={{ color: '#10B981' }}>*</span></label>
-                    <input type="text" required placeholder="Rahul Sharma" value={form.name}
+                    <label htmlFor="contact-name" style={labelStyle}>Your Name <span style={{ color: '#10B981' }}>*</span></label>
+                    <input id="contact-name" type="text" required placeholder="Rahul Sharma" value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Email <span style={{ color: '#10B981' }}>*</span></label>
-                    <input type="email" required placeholder="you@store.com" value={form.email}
+                    <label htmlFor="contact-email" style={labelStyle}>Email <span style={{ color: '#10B981' }}>*</span></label>
+                    <input id="contact-email" type="email" required placeholder="you@store.com" value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
                   <div>
-                    <label style={labelStyle}>Monthly COD orders</label>
-                    <select value={form.volume} onChange={(e) => setForm({ ...form, volume: e.target.value })}
+                    <label htmlFor="contact-volume" style={labelStyle}>Monthly COD orders</label>
+                    <select id="contact-volume" value={form.volume} onChange={(e) => setForm({ ...form, volume: e.target.value })}
                       style={{ ...inputStyle, cursor: 'pointer' }}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
@@ -170,8 +170,8 @@ export default function ContactSection() {
                     </select>
                   </div>
                   <div>
-                    <label style={labelStyle}>Message</label>
-                    <textarea rows={4} placeholder="Tell us about your store..." value={form.message}
+                    <label htmlFor="contact-message" style={labelStyle}>Message</label>
+                    <textarea id="contact-message" rows={4} placeholder="Tell us about your store and your RTO rate..." value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       style={{ ...inputStyle, resize: 'vertical' }}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}

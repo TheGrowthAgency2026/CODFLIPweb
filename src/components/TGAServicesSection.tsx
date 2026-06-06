@@ -55,47 +55,94 @@ export default function TGAServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {services.map((service, i) => {
-            const Icon = service.icon
+        <div className="flex flex-col gap-5">
+          {/* Featured card — Shopify Development (our product lives here) */}
+          {(() => {
+            const s = services[0]
+            const Icon = s.icon
             return (
               <motion.div
-                key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.1 }}
-                className="rounded-2xl p-7 flex flex-col gap-4"
-                style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="rounded-2xl p-8 lg:p-10"
+                style={{ background: 'var(--bg-pro)', border: '1px solid rgba(16,185,129,0.25)' }}
               >
-                <div
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: 'rgba(16,185,129,0.08)',
-                    border: '1px solid rgba(16,185,129,0.15)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  <Icon size={18} color="#10B981" />
+                <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+                  <div className="flex flex-col gap-4 flex-1">
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 11,
+                        background: 'rgba(16,185,129,0.1)',
+                        border: '1px solid rgba(16,185,129,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Icon size={20} color="#10B981" />
+                    </div>
+                    <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '24px', fontWeight: 800, color: 'var(--text)', lineHeight: 1.15 }}>
+                      {s.title}
+                    </h3>
+                    <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.75, maxWidth: '480px' }}>
+                      {s.description}
+                    </p>
+                    <a
+                      href="/codflip"
+                      style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#10B981', display: 'inline-flex', alignItems: 'center', gap: '6px', width: 'fit-content' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.75')}
+                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                    >
+                      See CODFLIP, our flagship app →
+                    </a>
+                  </div>
+                  <div
+                    className="lg:w-56 shrink-0 rounded-xl px-5 py-4 flex flex-col gap-2"
+                    style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)' }}
+                  >
+                    <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                      {s.tag}
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-3)', lineHeight: 1.5 }}>
+                      CODFLIP is live on the Shopify App Store with a free plan.
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '20px', fontWeight: 700, color: 'var(--text)' }}>
-                    {service.title}
-                  </h3>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-2)', lineHeight: 1.7 }}>
-                    {service.description}
-                  </p>
-                </div>
-                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-4)', marginTop: 'auto' }}>
-                  {service.tag}
-                </span>
               </motion.div>
             )
-          })}
+          })()}
+
+          {/* Remaining 3 services — compact row */}
+          <div className="grid md:grid-cols-3 gap-5">
+            {services.slice(1).map((service, i) => {
+              const Icon = service.icon
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: (i + 1) * 0.1 }}
+                  className="rounded-2xl p-6 flex flex-col gap-3"
+                  style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}
+                >
+                  <Icon size={20} color="#10B981" />
+                  <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '17px', fontWeight: 700, color: 'var(--text)' }}>
+                    {service.title}
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-2)', lineHeight: 1.65, flex: 1 }}>
+                    {service.description}
+                  </p>
+                  <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', color: 'var(--text-4)', marginTop: 'auto' }}>
+                    {service.tag}
+                  </span>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

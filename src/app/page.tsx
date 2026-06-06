@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main style={{ background: '#0a0a0a', position: 'relative', zIndex: 1 }}>
+    <main style={{ background: 'var(--bg)', position: 'relative', zIndex: 1 }}>
       <AgencyBanner />
       <Navbar />
       <TGAHeroSection />

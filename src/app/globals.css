@@ -54,8 +54,11 @@
 .no-transition, .no-transition * { transition: none !important; }
 
 html {
-  scroll-behavior: smooth;
   background: var(--bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
@@ -95,20 +98,26 @@ body::before {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.marquee-track { animation: marquee 28s linear infinite; }
+.marquee-track { animation: marquee 28s linear infinite; will-change: transform; }
 .marquee-track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .float-animation { animation: none; }
+  .pulse-dot { animation: none; opacity: 1; }
+}
 
 @keyframes float-card {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-.float-animation { animation: float-card 4s ease-in-out infinite; }
+.float-animation { animation: float-card 4s ease-in-out infinite; will-change: transform; }
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
-.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; will-change: opacity; }
 
 .hover-underline { position: relative; }
 .hover-underline::after {

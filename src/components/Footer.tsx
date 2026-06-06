@@ -125,7 +125,7 @@ export default function Footer() {
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)' }}>
             {isCodflip ? (
               <>
-                © 2025 CODFLIP · Built by{' '}
+                © {new Date().getFullYear()} CODFLIP · Built by{' '}
                 <a
                   href="/"
                   className="hover-underline"
@@ -135,7 +135,7 @@ export default function Footer() {
                 </a>
               </>
             ) : (
-              <>© 2025 The Growth Agency · Mumbai, India</>
+              <>© {new Date().getFullYear()} The Growth Agency · Mumbai, India</>
             )}
           </p>
           <div className="flex items-center gap-5">

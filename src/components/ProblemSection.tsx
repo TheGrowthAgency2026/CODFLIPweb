@@ -58,16 +58,18 @@ export default function ProblemSection() {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-col gap-4 mt-2">
-              {stats.map((s) => (
-                <div key={s.label} className="flex items-center gap-4 pl-4" style={{ borderLeft: '2px solid #10B981' }}>
-                  <div>
-                    <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '28px', fontWeight: 700, color: '#10B981', lineHeight: 1.1 }}>
-                      {s.num}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-2)', marginTop: '2px' }}>
-                      {s.label}
-                    </div>
+            <div className="flex flex-col gap-3 mt-2">
+              {stats.map((s, i) => (
+                <div key={s.label} className="flex items-center gap-5 rounded-xl px-4 py-3" style={{ background: 'var(--bg-2)', border: '1px solid var(--border)' }}>
+                  <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', fontWeight: 700, color: 'var(--text-4)', minWidth: '20px' }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div style={{ width: '1px', height: '32px', background: 'var(--border)', flexShrink: 0 }} />
+                  <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '26px', fontWeight: 700, color: '#10B981', lineHeight: 1, minWidth: '80px' }}>
+                    {s.num}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-2)' }}>
+                    {s.label}
                   </div>
                 </div>
               ))}

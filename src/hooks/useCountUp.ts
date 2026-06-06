@@ -10,18 +10,20 @@ export function useCountUp(end: number, duration = 2000) {
 
   useEffect(() => {
     if (!isInView) return
-    let start = 0
-    const step = end / (duration / 16)
-    const timer = setInterval(() => {
-      start += step
-      if (start >= end) {
-        setCount(end)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
-      }
-    }, 16)
-    return () => clearInterval(timer)
+    let rafId: number
+    let startTime: number | null = null
+
+    const frame = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp
+      const elapsed = timestamp - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 4)
+      setCount(Math.round(end * eased))
+      if (progress < 1) rafId = requestAnimationFrame(frame)
+    }
+
+    rafId = requestAnimationFrame(frame)
+    return () => cancelAnimationFrame(rafId)
   }, [isInView, end, duration])
 
   return { count, ref }

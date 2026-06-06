@@ -73,7 +73,7 @@ export default function TGAProductsSection() {
                 onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
               >
-                See the full product
+                See CODFLIP
                 <ArrowRight size={15} />
               </a>
               <a
@@ -85,7 +85,7 @@ export default function TGAProductsSection() {
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text)' }}
               >
-                Install on Shopify →
+                Install Free on Shopify →
               </a>
             </div>
           </motion.div>
@@ -144,7 +144,7 @@ export default function TGAProductsSection() {
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(16,185,129,0.14)')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(16,185,129,0.08)')}
               >
-                View full product →
+                See CODFLIP →
               </a>
             </div>
           </motion.div>

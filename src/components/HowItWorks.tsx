@@ -1,12 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const steps = [
   {
@@ -31,35 +26,18 @@ const steps = [
   },
 ]
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+}
+
+const stepVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 export default function HowItWorks() {
   const { ref: sectionRef, isInView } = useScrollReveal()
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      stepRefs.current.forEach((el, i) => {
-        if (!el) return
-        gsap.fromTo(
-          el,
-          { opacity: 0, x: -20 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            delay: i * 0.15,
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        )
-      })
-      ScrollTrigger.refresh()
-    })
-    return () => ctx.revert()
-  }, [])
 
   return (
     <section id="how-it-works" className="py-24 px-6 md:px-12 lg:px-24" style={{ background: 'var(--bg)' }}>
@@ -79,11 +57,16 @@ export default function HowItWorks() {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col">
+        <motion.div
+          className="flex flex-col"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {steps.map((step, i) => (
-            <div
+            <motion.div
               key={step.num}
-              ref={(el) => { stepRefs.current[i] = el }}
+              variants={stepVariants}
               className="flex gap-6"
             >
               <div className="flex flex-col items-center">
@@ -116,9 +99,9 @@ export default function HowItWorks() {
                   {step.body}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

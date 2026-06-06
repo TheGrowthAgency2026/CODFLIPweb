@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 const stats = [
-  { num: '50+', label: 'D2C brands served' },
+  { num: '50+', label: 'Agency clients' },
   { num: '₹100Cr+', label: 'GMV managed on Shopify' },
   { num: '8+', label: 'Years building on Shopify' },
 ]
@@ -117,7 +117,7 @@ export default function TGAHeroSection() {
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text)' }}
           >
-            See CODFLIP, our product →
+            See CODFLIP →
           </a>
         </motion.div>
 
