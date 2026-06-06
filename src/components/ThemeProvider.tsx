@@ -13,10 +13,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
 
   useEffect(() => {
-    const saved = localStorage.getItem('codflip-theme') as Theme | null
-    const initial = saved ?? 'dark'
-    setTheme(initial)
-    document.documentElement.setAttribute('data-theme', initial)
+    const current = (document.documentElement.getAttribute('data-theme') as Theme) || 'dark'
+    document.documentElement.classList.add('no-transition')
+    setTheme(current)
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('no-transition')
+    })
   }, [])
 
   const toggle = () => {

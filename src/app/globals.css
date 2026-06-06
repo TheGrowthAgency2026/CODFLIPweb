@@ -51,6 +51,7 @@
 }
 
 * { box-sizing: border-box; }
+.no-transition, .no-transition * { transition: none !important; }
 
 html {
   scroll-behavior: smooth;
