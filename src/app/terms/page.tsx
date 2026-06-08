@@ -99,7 +99,7 @@ const sections: Section[] = [
   {
     num: '8.',
     title: 'Free Trial',
-    body: 'FlipCOD offers eligible Shopify merchants a free installation and evaluation period to test the core COD-to-prepaid conversion features. No payment is required during the free trial period. The free trial does not constitute a binding service agreement. A paid subscription plan must be activated to continue using the Service after the free trial period expires. The Company reserves the right to determine the duration of the free trial at its sole discretion.',
+    body: 'CODFLIP offers eligible Shopify merchants a 7-day free trial of the Pro plan upon first activation. During the free trial, all Pro plan features are available at no charge. No payment is required during the free trial period, and the trial does not constitute a binding service agreement. If you do not cancel before the trial period ends, the Pro plan subscription (₹999/month + 3% conversion fee) will activate automatically. A perpetual Free plan (up to 50 COD orders per billing period) is also available at no cost and does not require a trial period. The Company reserves the right to modify the duration or eligibility criteria of the free trial at its sole discretion.',
   },
   {
     num: '9.',
@@ -129,9 +129,9 @@ const sections: Section[] = [
     num: '12.',
     title: 'Payment Terms',
     body: [
-      'FlipCOD operates on a subscription model comprising a flat monthly fee and a variable conversion fee of 3% of flipped GMV (for the Starter plan) or 2% of flipped GMV (for the Growth plan), as applicable to the plan selected by you. The flat monthly fee for the Starter plan is ₹1,999 per month and for the Growth plan is ₹4,999 per month. All pricing is defined in the plan selected at the time of installation and may be updated from time to time in accordance with this clause.',
-      'Flat monthly fees are payable in advance at the start of each billing cycle. The variable conversion fee (3% or 2% of flipped GMV, as applicable) is calculated on the total_price of each converted order at the time of conversion and is billed at the end of each calendar month or deducted from a prepaid wallet where applicable.',
-      'All prices are exclusive of GST where applicable. Any processing fees levied by a payment gateway at the time of making payment shall be borne by you.',
+      'CODFLIP offers two plans: (a) a Free plan at ₹0 per month, limited to 50 COD orders per billing period with no variable conversion fee; and (b) a Pro plan at ₹999 per month plus a variable conversion fee of 3% of the total order value of each successfully converted order. The Pro plan includes a 7-day free trial upon first activation. All pricing is inclusive of the features described in the plan selected at the time of installation and may be updated from time to time in accordance with this clause.',
+      'The Pro plan flat monthly fee of ₹999 is payable in advance at the start of each billing cycle and is billed through the Shopify App Store billing system. The variable conversion fee of 3% is calculated on the total_price of each converted order at the time of conversion and is billed at the end of each calendar month through the Shopify App Store billing system.',
+      'All prices are exclusive of GST where applicable. Any processing fees levied by the Shopify payment system or any other payment gateway at the time of making payment shall be borne by you.',
       'Invoices shall be treated as final and confirmed unless you raise any discrepancy within 2 business days of receipt. The parties shall work together in good faith to resolve any such discrepancy.',
       'Any revised pricing shall be communicated to you via email or the Platform dashboard with reasonable prior notice. Your continued use of the Service following the effective date of revised pricing shall constitute your acceptance of such revised pricing.',
       'In the event of failure to pay within 14 days of an invoice falling due, the Company reserves the right to suspend access to the Service, deactivate pending flip sequences, and disable coupon generation until outstanding amounts are settled.',
@@ -141,9 +141,9 @@ const sections: Section[] = [
     num: '13.',
     title: 'Outcome-Aligned Billing',
     body: [
-      'The variable conversion fee (3% for Starter, 2% for Growth) is charged exclusively on COD orders that are successfully converted to prepaid through the FlipCOD platform. A conversion is recognised when: (a) the customer completes payment via the UPI or prepaid link provided by the platform; and (b) the Shopify order status updates to paid with a non-COD payment gateway, confirmed by the platform\'s conversion detection logic.',
-      'No variable fee is charged on orders that are scored and targeted but not converted, on orders that are skipped or excluded by the eligibility engine, or on orders where the customer opts out or allows the offer to expire without payment.',
-      'The flat monthly subscription fee is charged regardless of conversion volume and is non-refundable once the billing cycle has commenced, except as otherwise expressly agreed in writing.',
+      'The variable conversion fee of 3% (applicable to the Pro plan) is charged exclusively on COD orders that are successfully converted to prepaid through the CODFLIP platform. A conversion is recognised when: (a) the customer completes payment via the UPI or prepaid link provided by the platform; and (b) the Shopify order status updates to paid with a non-COD payment gateway, confirmed by the platform\'s conversion detection logic.',
+      'No variable fee is charged on orders that are scored and targeted but not converted, on orders that are skipped or excluded by the eligibility engine, or on orders where the customer opts out or allows the offer to expire without payment. The Free plan has no variable conversion fee of any kind.',
+      'The flat monthly subscription fee for the Pro plan is charged regardless of conversion volume and is non-refundable once the billing cycle has commenced, except as otherwise expressly agreed in writing. No fee is charged for the Free plan.',
       'In the event of a billing dispute regarding a specific conversion event, you may raise a dispute within 7 days of the relevant invoice. The Company will provide a full audit log of the conversion event including webhook receipt timestamp, coupon usage record, and payment gateway confirmation. Undisputed amounts remain payable within the original due date.',
     ],
   },
