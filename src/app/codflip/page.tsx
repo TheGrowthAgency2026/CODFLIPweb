@@ -1,7 +1,6 @@
 import AgencyBanner from '@/components/AgencyBanner'
 import Navbar from '@/components/Navbar'
 import HeroSection from '@/components/HeroSection'
-import SocialProofBar from '@/components/SocialProofBar'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorks from '@/components/HowItWorks'
 import FeaturesSection from '@/components/FeaturesSection'
@@ -20,7 +19,6 @@ export default function CodflipPage() {
       <AgencyBanner />
       <Navbar />
       <HeroSection />
-      <SocialProofBar />
       <ProblemSection />
       <HowItWorks />
       <FeaturesSection />

@@ -1,10 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeftRight, TrendingDown, MessageCircle, ShieldCheck } from 'lucide-react'
+import { type LucideIcon, ArrowLeftRight, TrendingDown, MessageCircle, ShieldCheck, Layers } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
-const features = [
+type Feature = { icon: LucideIcon; tag: string; title: string; body: string; stat: string; wide?: boolean }
+
+const features: Feature[] = [
   {
     icon: ArrowLeftRight,
     tag: 'CORE',
@@ -32,6 +34,14 @@ const features = [
     title: 'OTP Login',
     body: 'Customers log into your store with a WhatsApp OTP, no password needed. Eliminates fake accounts and unverified phone numbers from placing COD orders.',
     stat: 'Eliminates fake COD orders at source',
+  },
+  {
+    icon: Layers,
+    tag: 'PAYMENT',
+    title: 'Partial COD',
+    body: 'Customer pays 20% upfront via UPI at checkout to confirm intent, and the remaining 80% is collected as COD on delivery. Reduces RTO risk while keeping the COD option for hesitant buyers. No full commitment needed.',
+    stat: '20% prepaid at order · 80% on delivery',
+    wide: true,
   },
 ]
 
@@ -65,7 +75,7 @@ export default function FeaturesSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.12 }}
-                className="rounded-2xl p-7 flex flex-col gap-4 cursor-default"
+                className={`rounded-2xl p-7 flex flex-col gap-4 cursor-default${f.wide ? ' md:col-span-2' : ''}`}
                 style={{ background: 'var(--bg-2)', border: '1px solid var(--border)', transition: 'all 0.25s ease' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(16,185,129,0.4)'
