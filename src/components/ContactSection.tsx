@@ -34,13 +34,22 @@ const orderVolumes = ['<500 orders/month', '500–2,000 orders/month', '2,000–
 export default function ContactSection() {
   const { ref, isInView } = useScrollReveal()
   const [form, setForm] = useState({ storeName: '', name: '', email: '', volume: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     setStatus('loading')
-    await new Promise((r) => setTimeout(r, 1200))
-    setStatus('success')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputStyle: React.CSSProperties = {
@@ -178,6 +187,11 @@ export default function ContactSection() {
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
                   </div>
+                  {status === 'error' && (
+                    <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#f87171', textAlign: 'center' }}>
+                      Something went wrong. Please try again or email us directly.
+                    </p>
+                  )}
                   <button
                     type="submit"
                     disabled={status === 'loading'}

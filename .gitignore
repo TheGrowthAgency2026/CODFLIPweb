@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 stitch/
+
+# leads data (switch to Google Sheets before production)
+/data/leads.json
