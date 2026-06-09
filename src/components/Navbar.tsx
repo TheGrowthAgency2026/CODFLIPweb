@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 const tgaLinks = [
   { label: 'Services', href: '#about' },
   { label: 'Products', href: '#products' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '#contact' },
 ]
 
