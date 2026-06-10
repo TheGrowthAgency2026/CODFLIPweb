@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { type LucideIcon, ArrowLeftRight, TrendingDown, MessageCircle, ShieldCheck, Layers } from 'lucide-react'
+import { type LucideIcon, ArrowLeftRight, TrendingDown, MessageCircle, ShieldCheck, Layers, BadgeIndianRupee } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 type Feature = { icon: LucideIcon; tag: string; title: string; body: string; stat: string; wide?: boolean }
@@ -41,7 +41,13 @@ const features: Feature[] = [
     title: 'Partial COD',
     body: 'Customer pays 20% upfront via UPI at checkout to confirm intent, and the remaining 80% is collected as COD on delivery. Reduces RTO risk while keeping the COD option for hesitant buyers. No full commitment needed.',
     stat: '20% prepaid at order · 80% on delivery',
-    wide: true,
+  },
+  {
+    icon: BadgeIndianRupee,
+    tag: 'PRICING',
+    title: 'COD Convenience Fee',
+    body: 'A small convenience fee is added to full cash-on-delivery orders, while prepaid checkout stays free. It nudges hesitant buyers to switch to prepaid, and on the COD orders that still go through, the fee helps offset RTO losses, so every order protects your margin.',
+    stat: 'Free on prepaid · fee cushions COD RTO',
   },
 ]
 
