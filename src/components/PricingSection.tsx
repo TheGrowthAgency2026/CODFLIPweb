@@ -113,6 +113,9 @@ export default function PricingSection() {
               <span style={{ fontFamily: 'var(--font-syne)', fontSize: '44px', fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>₹999</span>
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-3)' }}>/month</span>
             </div>
+            <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)', marginBottom: '20px' }}>
+              ≈ $11.99 / month
+            </p>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: '#10B981', marginBottom: '4px' }}>
               + 3% commission on every successful flip
             </p>

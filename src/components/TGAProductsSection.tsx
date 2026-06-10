@@ -15,7 +15,7 @@ const highlights = [
 const metrics = [
   { num: '35%', label: 'RTO reduction' },
   { num: '3.1×', label: 'Average ROI' },
-  { num: '₹999', label: 'Pro plan / month' },
+  { num: '₹999', label: 'Pro plan / month (≈ $11.99)' },
   { num: '2 min', label: 'Setup time' },
 ]
 

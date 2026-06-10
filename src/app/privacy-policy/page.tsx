@@ -206,7 +206,7 @@ const sections: Section[] = [
       { term: 'Company Brand Name:', text: 'The Growth Agency' },
       { term: 'Legal Entity Name:', text: 'Kadadevaru Technology LLP' },
       { term: 'LLPIN:', text: 'ACO-0082' },
-      { term: 'Registered Address:', text: '608, Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India' },
+      { term: 'Registered Address:', text: 'Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India' },
       { term: 'Email:', text: 'support@thegrowthagency.in' },
       { term: 'WhatsApp:', text: '+91 96642 00912' },
     ],
@@ -218,7 +218,7 @@ const sections: Section[] = [
     list: [
       { term: 'By email:', text: 'support@thegrowthagency.in' },
       { term: 'By WhatsApp:', text: '+91 96642 00912' },
-      { term: 'By post:', text: '608, Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India' },
+      { term: 'By post:', text: 'Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India' },
     ],
   },
 ]
@@ -281,7 +281,7 @@ export default function PrivacyPolicy() {
             Last updated: April 2026
           </p>
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)', marginTop: '8px', lineHeight: 1.6 }}>
-            Kadadevaru Technology LLP · 608, Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India
+            Kadadevaru Technology LLP · Arihant Atria, Saptapur, Dharwad – 580001, Karnataka, India
           </p>
         </div>
 
