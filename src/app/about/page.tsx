@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About — The Growth Agency & CODFLIP',
-  description: 'The story behind The Growth Agency and CODFLIP — how we built India\'s leading D2C growth studio and the Shopify app that came from the problems we kept solving.',
+  title: 'About The Growth Agency & CODFLIP',
+  description: 'The story behind The Growth Agency and CODFLIP, how we built India\'s leading D2C growth studio and the Shopify app that came from the problems we kept solving.',
 }
 
 type Item = string | { term: string; text: string }
@@ -35,10 +35,10 @@ const sections: Section[] = [
     num: '2.',
     title: 'Our Story',
     body: [
-      'The Growth Agency was built out of a simple observation: most D2C brands in India were growing their ad spend but not their margins. They were acquiring customers at rising CAC, returning orders at the same rate, and repeating the same cycle — more spend, more returns, no real compounding.',
+      'The Growth Agency was built out of a simple observation: most D2C brands in India were growing their ad spend but not their margins. They were acquiring customers at rising CAC, returning orders at the same rate, and repeating the same cycle: more spend, more returns, no real compounding.',
       'We started as a Shopify development and performance marketing studio. Over time, as we worked more closely inside our client\'s operations, we began to see patterns that no off-the-shelf tool was solving cleanly. The most expensive pattern was COD returns.',
-      'In most of our client\'s businesses, 25–35% of all COD orders were being returned. That number represented hundreds of thousands of rupees leaving every single month — in forward shipping costs, reverse logistics fees, restocking labour, and lost working capital. It was the single largest margin leak in their P&L, and no one was addressing it systematically.',
-      'We looked for tools that could help. We found nothing that combined risk scoring, WhatsApp messaging, payment link generation, and Shopify order management in a single, affordable app built for Indian merchants. So we built one. That is how CODFLIP was created — not as a product idea, but as a solution we needed for the work we were already doing.',
+      'In most of our client\'s businesses, 25–35% of all COD orders were being returned. That number represented hundreds of thousands of rupees leaving every single month: in forward shipping costs, reverse logistics fees, restocking labour, and lost working capital. It was the single largest margin leak in their P&L, and no one was addressing it systematically.',
+      'We looked for tools that could help. We found nothing that combined risk scoring, WhatsApp messaging, payment link generation, and Shopify order management in a single, affordable app built for Indian merchants. So we built one. That is how CODFLIP was created, not as a product idea, but as a solution we needed for the work we were already doing.',
     ],
   },
   {
@@ -87,7 +87,7 @@ const sections: Section[] = [
     body: [
       'We run Meta and Google Ads campaigns for D2C brands with a single objective: profitable customer acquisition. Not vanity ROAS. Not last-click attribution that makes campaigns look better than they are. Actual profitability at the contribution margin level.',
       'Before we run a single rupee of ads, we establish the unit economics: what is the brand\'s blended CAC target? What is the average order value? What is the repeat purchase rate at 90 and 180 days? What is the RTO rate (and what does that do to effective order value)? What is the contribution margin after all variable costs? These numbers define what a profitable CPA looks like and that is the number we optimise against.',
-      'Our campaign architecture covers full-funnel Meta campaigns (prospecting, retargeting, and retention audiences), Google Shopping and Performance Max for high-intent capture, and creative strategy including static, video, and UGC formats. We do not outsource creative strategy to the brand — we are involved in what is being tested and why.',
+      'Our campaign architecture covers full-funnel Meta campaigns (prospecting, retargeting, and retention audiences), Google Shopping and Performance Max for high-intent capture, and creative strategy including static, video, and UGC formats. We do not outsource creative strategy to the brand. We are involved in what is being tested and why.',
       'We provide monthly reports that speak in the language of brand P&L, not agency dashboards. Revenue, orders, CPO, CAC, blended ROAS, estimated contribution margin the numbers a brand owner actually needs to make decisions.',
     ],
   },
@@ -283,7 +283,7 @@ export default function About() {
               letterSpacing: '-1.5px',
             }}
           >
-            About us — who we are,<br />what we do, and why.
+            About us: who we are,<br />what we do, and why.
           </h1>
           <p
             style={{
@@ -367,7 +367,7 @@ export default function About() {
               lineHeight: 1.7,
             }}
           >
-            Whether you want to reduce RTO with CODFLIP, improve your Shopify store, or talk about a full-service engagement — we are happy to start with a conversation.
+            Whether you want to reduce RTO with CODFLIP, improve your Shopify store, or talk about a full-service engagement, we are happy to start with a conversation.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <a
