@@ -90,7 +90,7 @@ const sections: Section[] = [
     num: '7.',
     title: 'Services',
     body: [
-      'The Company provides WhatsApp-based AI retention automation for Shopify D2C brands. Services include agent setup, WhatsApp Business API integration, Shopify sync, ongoing agent management, and periodic CAC reporting. The specific scope is defined in the engagement agreement signed before onboarding.',
+'The Company provides FlipCOD, a Shopify app that helps D2C merchants reduce return-to-origin (RTO) losses by converting cash-on-delivery (COD) orders into prepaid orders. The Services include risk scoring of COD orders, automated WhatsApp nudges with personalised incentives and UPI/prepaid payment links, partial COD collection, COD convenience-fee handling, WhatsApp OTP login, and a dashboard with conversion tracking and an RTO Cost Estimator. The Services are designed to ease day-to-day D2C operations by recovering margin that would otherwise be lost to returns, without requiring any manual effort from you.',
       'Subject to these Terms, the Company grants you a non-exclusive, non-transferable, revocable, non-assignable, and limited right to access and use the Platform for the purpose of availing the Services in accordance with these Terms, for your internal business use.',
       'The Company shall not be liable for unavailability of Services due to: (a) a Force Majeure event; (b) scheduled downtime; (c) outages based on your networks, domain name server issues, or other third-party services; or (d) outages to remedy a security vulnerability or as required under applicable law.',
       "The Services are provided on an 'as is' basis. The Company makes no representations concerning the quality of the Platform or the Services and does not promise that the Platform or Services will be error-free, bug-free, or will operate without interruption.",
@@ -134,7 +134,7 @@ const sections: Section[] = [
       'All prices are exclusive of GST where applicable. Any processing fees levied by the Shopify payment system or any other payment gateway at the time of making payment shall be borne by you.',
       'Invoices shall be treated as final and confirmed unless you raise any discrepancy within 2 business days of receipt. The parties shall work together in good faith to resolve any such discrepancy.',
       'Any revised pricing shall be communicated to you via email or the Platform dashboard with reasonable prior notice. Your continued use of the Service following the effective date of revised pricing shall constitute your acceptance of such revised pricing.',
-      'In the event of failure to pay within 14 days of an invoice falling due, the Company reserves the right to suspend access to the Service, deactivate pending flip sequences, and disable coupon generation until outstanding amounts are settled.',
+      'In the event of failure to pay within 24 hours of an invoice falling due, the Company reserves the right to suspend access to the Service, deactivate pending flip sequences, and disable coupon generation until outstanding amounts are settled.',
     ],
   },
   {
