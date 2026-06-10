@@ -9,6 +9,7 @@ const tgaLinks = [
   { label: 'Services', href: '#about' },
   { label: 'Products', href: '#products' },
   { label: 'About', href: '/about' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 

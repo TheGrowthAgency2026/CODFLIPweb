@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import TGAHeroSection from '@/components/TGAHeroSection'
 import TGAServicesSection from '@/components/TGAServicesSection'
 import TGAProductsSection from '@/components/TGAProductsSection'
+import TGAFaqSection from '@/components/TGAFaqSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 
@@ -19,6 +20,7 @@ export default function Home() {
       <TGAHeroSection />
       <TGAServicesSection />
       <TGAProductsSection />
+      <TGAFaqSection />
       <ContactSection />
       <Footer />
     </main>
