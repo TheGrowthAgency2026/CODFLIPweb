@@ -62,7 +62,7 @@ export default function Footer() {
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-4)', lineHeight: 1.6, maxWidth: '240px' }}>
               {isCodflip
                 ? 'The smart COD-to-prepaid conversion tool for Indian D2C brands.'
-                : "India's D2C growth studio. Shopify apps, WhatsApp retention, CRO, and performance marketing."}
+                : "India's D2C growth studio. Shopify apps, WhatsApp retention, and CRO."}
             </p>
 
             {isCodflip && (

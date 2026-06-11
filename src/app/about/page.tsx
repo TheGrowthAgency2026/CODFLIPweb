@@ -36,7 +36,7 @@ const sections: Section[] = [
     title: 'Our Story',
     body: [
       'The Growth Agency was built out of a simple observation: most D2C brands in India were growing their ad spend but not their margins. They were acquiring customers at rising CAC, returning orders at the same rate, and repeating the same cycle: more spend, more returns, no real compounding.',
-      'We started as a Shopify development and performance marketing studio. Over time, as we worked more closely inside our client\'s operations, we began to see patterns that no off-the-shelf tool was solving cleanly. The most expensive pattern was COD returns.',
+      'We started as a Shopify development studio. Over time, as we worked more closely inside our client\'s operations, we began to see patterns that no off-the-shelf tool was solving cleanly. The most expensive pattern was COD returns.',
       'In most of our client\'s businesses, 25–35% of all COD orders were being returned. That number represented hundreds of thousands of rupees leaving every single month: in forward shipping costs, reverse logistics fees, restocking labour, and lost working capital. It was the single largest margin leak in their P&L, and no one was addressing it systematically.',
       'We looked for tools that could help. We found nothing that combined risk scoring, WhatsApp messaging, payment link generation, and Shopify order management in a single, affordable app built for Indian merchants. So we built one. That is how CODFLIP was created, not as a product idea, but as a solution we needed for the work we were already doing.',
     ],
@@ -44,12 +44,11 @@ const sections: Section[] = [
   {
     num: '3.',
     title: 'What We Do',
-    body: 'We offer four core services to D2C brands on Shopify. Each service is designed to address a specific layer of the growth problem from the store itself to the ads that bring customers to it.',
+    body: 'We offer three core services to D2C brands on Shopify. Each service is designed to address a specific layer of the growth problem.',
     list: [
       { term: 'Shopify Development & Custom Apps:', text: 'Custom Shopify stores, private apps, and third-party integrations built for conversion. This includes checkout customisation, loyalty and rewards systems, subscription setups, headless builds, and purpose-built tools like CODFLIP.' },
       { term: 'WhatsApp AI Retention:', text: 'Automated WhatsApp flows powered by the WhatsApp Business API. This covers abandoned cart recovery, COD-to-prepaid nudges, delivery tracking messages, re-engagement sequences, and post-purchase flows. All messaging is TRAI-compliant and DLT-registered.' },
       { term: 'Conversion Rate Optimisation:', text: 'Full-funnel CVR audits, heatmap and session recording analysis, A/B test design and execution, and systematic checkout improvements. We identify what is killing your conversion rate and fix it in order of impact.' },
-      { term: 'Performance Marketing:', text: 'Meta and Google Ads campaigns built around contribution margin, not just ROAS. We account for CAC, AOV, RTO rate, and repeat purchase behaviour in every campaign we run. We care whether a campaign is making you money, not whether it looks good on a dashboard.' },
     ],
   },
   {
@@ -79,16 +78,6 @@ const sections: Section[] = [
       'Our CRO work starts with a full-funnel audit: product pages, collection pages, cart experience, checkout flow, mobile responsiveness, page speed, and trust signals. We use heatmaps, session recordings, and funnel analytics to identify the exact friction points that are costing the brand conversions.',
       'From the audit, we build a prioritised test roadmap interventions ranked by expected impact versus implementation effort. We then design, build, and run A/B tests on the interventions with the highest expected lift. Every test we run has a clear hypothesis, a primary success metric, and a minimum detectable effect size so we know when to call significance.',
       'Our CRO work is not a one-time project. The best results come from running a continuous programme of incremental improvements that compound over time.',
-    ],
-  },
-  {
-    num: '7.',
-    title: 'Performance Marketing',
-    body: [
-      'We run Meta and Google Ads campaigns for D2C brands with a single objective: profitable customer acquisition. Not vanity ROAS. Not last-click attribution that makes campaigns look better than they are. Actual profitability at the contribution margin level.',
-      'Before we run a single rupee of ads, we establish the unit economics: what is the brand\'s blended CAC target? What is the average order value? What is the repeat purchase rate at 90 and 180 days? What is the RTO rate (and what does that do to effective order value)? What is the contribution margin after all variable costs? These numbers define what a profitable CPA looks like and that is the number we optimise against.',
-      'Our campaign architecture covers full-funnel Meta campaigns (prospecting, retargeting, and retention audiences), Google Shopping and Performance Max for high-intent capture, and creative strategy including static, video, and UGC formats. We do not outsource creative strategy to the brand. We are involved in what is being tested and why.',
-      'We provide monthly reports that speak in the language of brand P&L, not agency dashboards. Revenue, orders, CPO, CAC, blended ROAS, estimated contribution margin the numbers a brand owner actually needs to make decisions.',
     ],
   },
   {
@@ -137,7 +126,7 @@ const sections: Section[] = [
     title: 'How We Work With Clients',
     body: [
       'We do not run a large agency model with account managers and offshore delivery teams. We are a focused studio. The work we take on is done by people who have direct context on the brand\'s business, the results we are trying to achieve, and the tools we are using to achieve them.',
-      'For performance marketing and CRO engagements, we typically work on a retainer basis with a defined scope of deliverables per month. For Shopify development work, we scope projects individually and quote on a project basis. For CODFLIP, merchants can install and configure the app themselves in approximately 2 minutes via the Shopify App Store.',
+      'For CRO engagements, we typically work on a retainer basis with a defined scope of deliverables per month. For Shopify development work, we scope projects individually and quote on a project basis. For CODFLIP, merchants can install and configure the app themselves in approximately 2 minutes via the Shopify App Store.',
       'Onboarding for a full-service engagement typically includes: (a) a discovery call to understand the brand\'s current unit economics, RTO rate, ad performance, and conversion funnel; (b) an audit of the existing Shopify store, WhatsApp setup (if any), and ad account; (c) a written engagement scope with objectives, deliverables, timelines, and success metrics; and (d) a defined reporting cadence.',
       'We work best with brands that already have product-market fit and are looking to scale efficiently not brands in the pre-revenue or very early stage that need brand-building help. Our work is most impactful when there is already a volume of orders, a meaningful RTO challenge, and a founder or marketing team who wants to understand the numbers behind the growth.',
     ],

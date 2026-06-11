@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'The Growth Agency — D2C Growth Studio for Indian Brands',
-  description: 'Shopify development, WhatsApp retention, CRO, and performance marketing for India\'s top D2C brands.',
+  description: 'Shopify development, WhatsApp retention, and CRO for India\'s top D2C brands.',
 }
 
 export default function Home() {
