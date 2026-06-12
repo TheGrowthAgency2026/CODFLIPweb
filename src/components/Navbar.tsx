@@ -60,11 +60,7 @@ export default function Navbar() {
         {/* Logo */}
         {isCodflip ? (
           <a href="/codflip" className="flex items-center gap-2 z-10">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="20" height="20" rx="5" fill="rgba(16,185,129,0.15)" />
-              <path d="M5 10h6M8 7l3 3-3 3" stroke="#10B981" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              <text x="11" y="15" fontSize="8" fill="#10B981" fontWeight="bold">₹</text>
-            </svg>
+            <img src="/codflip-icon.svg" alt="CODFLIP" width={28} height={28} style={{ borderRadius: 7 }} />
             <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '20px' }}>
               <span style={{ color: 'var(--text)' }}>COD</span>
               <span style={{ color: '#10B981' }}>FLIP</span>
