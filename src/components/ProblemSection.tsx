@@ -128,15 +128,11 @@ export default function ProblemSection() {
                   </p>
                 </div>
 
-                <a
-                  href="https://apps.shopify.com/codflip"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover-underline"
-                  style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#10B981' }}
+                <span
+                  style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#10B981', opacity: 0.6, cursor: 'not-allowed' }}
                 >
-                  Start recovering this money →
-                </a>
+                  Releasing soon on Shopify
+                </span>
               </div>
             </div>
           </motion.div>

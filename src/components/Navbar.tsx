@@ -124,18 +124,12 @@ export default function Navbar() {
           </button>
 
           {isCodflip ? (
-            <a
-              href="https://apps.shopify.com/codflip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2 rounded-lg transition-all duration-200 hover:scale-[1.02]"
-              style={{ background: '#10B981', color: '#0a0a0a', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500 }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
+            <span
+              className="flex items-center gap-2 px-5 py-2 rounded-lg cursor-not-allowed"
+              style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, border: '1px solid rgba(16,185,129,0.3)' }}
             >
-              Install Free on Shopify
-              <ArrowRight size={14} />
-            </a>
+              Releasing soon on Shopify
+            </span>
           ) : (
             <a
               href="/codflip"
@@ -189,16 +183,12 @@ export default function Navbar() {
             </a>
           ))}
           {isCodflip ? (
-            <a
-              href="https://apps.shopify.com/codflip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-lg mt-2"
-              style={{ background: '#10B981', color: '#0a0a0a', fontFamily: 'var(--font-dm-sans)', fontSize: '15px', fontWeight: 500 }}
+            <span
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-lg mt-2 cursor-not-allowed"
+              style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', fontFamily: 'var(--font-dm-sans)', fontSize: '15px', fontWeight: 500, border: '1px solid rgba(16,185,129,0.3)' }}
             >
-              Install Free on Shopify
-              <ArrowRight size={14} />
-            </a>
+              Releasing soon on Shopify
+            </span>
           ) : (
             <a
               href="/codflip"

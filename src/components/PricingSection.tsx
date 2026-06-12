@@ -77,17 +77,12 @@ export default function PricingSection() {
                 </li>
               ))}
             </ul>
-            <a
-              href="https://apps.shopify.com/codflip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 text-center rounded-xl transition-all duration-200 block"
-              style={{ border: '1px solid var(--border)', color: 'var(--text-2)', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500 }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-2)' }}
+            <span
+              className="w-full py-3 text-center rounded-xl block cursor-not-allowed"
+              style={{ border: '1px solid rgba(16,185,129,0.3)', color: '#10B981', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, background: 'rgba(16,185,129,0.06)' }}
             >
-              Get started free
-            </a>
+              Releasing soon on Shopify
+            </span>
           </motion.div>
 
           {/* Pro Plan */}
@@ -130,17 +125,12 @@ export default function PricingSection() {
                 </li>
               ))}
             </ul>
-            <a
-              href="https://apps.shopify.com/codflip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 text-center rounded-xl transition-all duration-200 block"
-              style={{ background: '#10B981', color: '#0a0a0a', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 600 }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = '#059669')}
-              onMouseLeave={(e) => (e.currentTarget.style.background = '#10B981')}
+            <span
+              className="w-full py-3 text-center rounded-xl block cursor-not-allowed"
+              style={{ background: 'rgba(16,185,129,0.15)', color: '#10B981', fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 600, border: '1px solid rgba(16,185,129,0.3)' }}
             >
-              Start 7-day free trial
-            </a>
+              Releasing soon on Shopify
+            </span>
           </motion.div>
         </div>
 

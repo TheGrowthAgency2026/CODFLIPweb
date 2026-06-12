@@ -8,9 +8,9 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 const contactOptions = [
   {
     icon: ExternalLink,
-    title: 'Install on Shopify',
-    sub: 'Start free, no credit card needed',
-    link: { href: 'https://apps.shopify.com/codflip', label: '→ Install CODFLIP on Shopify' },
+    title: 'Releasing soon on Shopify',
+    sub: 'Coming to the Shopify App Store soon',
+    link: { href: '', label: 'Releasing soon on Shopify' },
   },
   {
     icon: Mail,
@@ -110,15 +110,21 @@ export default function ContactSection() {
                     <div>
                       <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, color: 'var(--text)', marginBottom: '2px' }}>{opt.title}</p>
                       <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)', marginBottom: '4px' }}>{opt.sub}</p>
-                      <a
-                        href={opt.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover-underline"
-                        style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#10B981' }}
-                      >
-                        {opt.link.label}
-                      </a>
+                      {opt.link.href === '' ? (
+                        <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#10B981', opacity: 0.55, cursor: 'not-allowed' }}>
+                          {opt.link.label}
+                        </span>
+                      ) : (
+                        <a
+                          href={opt.link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover-underline"
+                          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: '#10B981' }}
+                        >
+                          {opt.link.label}
+                        </a>
+                      )}
                     </div>
                   </div>
                 )

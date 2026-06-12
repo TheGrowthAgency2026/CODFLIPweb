@@ -76,17 +76,12 @@ export default function TGAProductsSection() {
                 See CODFLIP
                 <ArrowRight size={15} />
               </a>
-              <a
-                href="https://apps.shopify.com/codflip"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-200"
-                style={{ background: 'transparent', border: '1px solid var(--border)', color: 'var(--text)', fontFamily: 'var(--font-dm-sans)', fontSize: '15px' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#10B981'; e.currentTarget.style.color = '#10B981' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text)' }}
+              <span
+                className="flex items-center gap-2 px-6 py-3 rounded-lg cursor-not-allowed"
+                style={{ background: 'transparent', border: '1px solid rgba(16,185,129,0.3)', color: '#10B981', fontFamily: 'var(--font-dm-sans)', fontSize: '15px' }}
               >
-                Install Free on Shopify →
-              </a>
+                Releasing soon on Shopify
+              </span>
             </div>
           </motion.div>
 

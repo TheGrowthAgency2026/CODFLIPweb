@@ -6,7 +6,7 @@ const productLinks = [
   { label: 'Features', href: '/codflip#features' },
   { label: 'Pricing', href: '/codflip#pricing' },
   { label: 'How It Works', href: '/codflip#how-it-works' },
-  { label: 'Install on Shopify', href: 'https://apps.shopify.com/codflip' },
+  { label: 'Releasing soon on Shopify', href: '' },
 ]
 
 const companyLinks = [
@@ -83,16 +83,22 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {productLinks.map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
-                    target={l.href.startsWith('http') ? '_blank' : undefined}
-                    rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    style={linkStyle}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-3)')}
-                  >
-                    {l.label}
-                  </a>
+                  {l.href === '' ? (
+                    <span style={{ ...linkStyle, opacity: 0.5, cursor: 'not-allowed' }}>
+                      {l.label}
+                    </span>
+                  ) : (
+                    <a
+                      href={l.href}
+                      target={l.href.startsWith('http') ? '_blank' : undefined}
+                      rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      style={linkStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-3)')}
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
