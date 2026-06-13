@@ -15,7 +15,7 @@ const freeFeatures = [
 
 const proFeatures = [
   'Unlimited COD orders',
-  '3-message sequence (main + reminder + urgent)',
+  '2-message sequence (main + reminder)',
   'Smart incentive formula',
   'Custom quiet hours',
   'Offer expiry countdown',
