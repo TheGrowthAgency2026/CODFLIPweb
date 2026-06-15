@@ -1,45 +1,56 @@
+'use client'
+
 const brands = [
-  'Heads Up For Tails',
-  'The Souled Store',
-  'Bombay Shaving Company',
-  'Noise',
-  'Wakefit',
-  'Mamaearth',
-  'WOW Skin',
-  'boAt',
-  'Plum',
-  'Sugar Cosmetics',
+  'FASHION D2C', 'SKINCARE', 'SUPPLEMENTS', 'ELECTRONICS', 'AYURVEDA',
+  'HOME DECOR', 'ATHLEISURE', 'HAIRCARE', 'BABY CARE', 'NUTRITION',
+  'FASHION D2C', 'SKINCARE', 'SUPPLEMENTS', 'ELECTRONICS', 'AYURVEDA',
+  'HOME DECOR', 'ATHLEISURE', 'HAIRCARE', 'BABY CARE', 'NUTRITION',
 ]
 
 export default function SocialProofBar() {
-  const items = [...brands, ...brands]
-
   return (
-    <div
-      className="w-full overflow-hidden"
-      style={{ background: 'var(--bg-2)', padding: '20px 0' }}
+    <section
+      style={{
+        background: '#F5F5F5',
+        padding: '44px 0',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
+        borderBottom: '1px solid rgba(0,0,0,0.06)',
+      }}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 flex items-center gap-8">
-        <p
-          className="shrink-0"
-          style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)', whiteSpace: 'nowrap' }}
-        >
-          Trusted by India&apos;s fastest-growing D2C brands
-        </p>
+      <p style={{
+        textAlign: 'center',
+        fontFamily: 'var(--font-dm-sans)',
+        fontSize: 12, fontWeight: 500,
+        letterSpacing: '0.12em', textTransform: 'uppercase',
+        color: 'rgba(0,0,0,0.38)', marginBottom: 24,
+      }}>
+        Built for every type of Shopify D2C store
+      </p>
 
-        <div className="overflow-hidden flex-1">
-          <div className="marquee-track flex items-center gap-8 whitespace-nowrap">
-            {items.map((brand, i) => (
-              <span key={i} className="flex items-center gap-3">
-                <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--text-3)' }}>
-                  {brand}
-                </span>
-                <span style={{ color: '#10B981', fontSize: '10px' }}>●</span>
-              </span>
-            ))}
-          </div>
+      <div style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 120, zIndex: 1, background: 'linear-gradient(to right, #F5F5F5, transparent)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 120, zIndex: 1, background: 'linear-gradient(to left, #F5F5F5, transparent)', pointerEvents: 'none' }} />
+
+        <div style={{ display: 'flex', gap: 56, animation: 'logo-scroll 28s linear infinite', willChange: 'transform', width: 'max-content' }}>
+          {brands.map((name, i) => (
+            <span key={i} style={{
+              fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: 12,
+              letterSpacing: '0.12em', color: 'rgba(0,0,0,0.25)',
+              whiteSpace: 'nowrap', textTransform: 'uppercase',
+            }}>
+              {name}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+
+      <style>{`
+        @keyframes logo-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+      `}</style>
+    </section>
   )
 }

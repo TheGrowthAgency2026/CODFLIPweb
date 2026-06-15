@@ -1,143 +1,146 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
-const stats = [
-  { num: '28%', label: 'Average Indian D2C RTO rate' },
-  { num: '₹200', label: 'Average cost per returned order' },
-  { num: '60%', label: 'COD share of total orders' },
-]
+function CountUp({ to, prefix = '', suffix = '' }: { to: number; prefix?: string; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const [val, setVal] = useState(0)
 
-function formatINR(n: number): string {
-  if (n >= 100000) return `₹${(n / 100000).toFixed(1)}L`
-  if (n >= 1000) return `₹${(n / 1000).toFixed(0)}K`
-  return `₹${n}`
+  useEffect(() => {
+    if (!inView) return
+    const duration = 1400
+    const start = performance.now()
+    const frame = (now: number) => {
+      const t = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - t, 3)
+      setVal(Math.round(eased * to))
+      if (t < 1) requestAnimationFrame(frame)
+    }
+    requestAnimationFrame(frame)
+  }, [inView, to])
+
+  return <span ref={ref}>{prefix}{val}{suffix}</span>
 }
 
-export default function ProblemSection() {
-  const [orders, setOrders] = useState(1000)
-  const [rtoRate, setRtoRate] = useState(28)
-  const [costPerRto, setCostPerRto] = useState(180)
-  const { ref, isInView } = useScrollReveal()
+const stats = [
+  { value: 37, suffix: '%', label: 'average RTO rate\nacross Indian D2C' },
+  { value: 220, prefix: '₹', label: 'average loss\nper returned order' },
+  { value: 68, suffix: '%', label: 'of COD customers\nnever receive a nudge' },
+]
 
-  const monthlyLoss = Math.round((orders * rtoRate) / 100 * costPerRto)
-  const yearlyLoss = monthlyLoss * 12
-  const recovery = Math.round(monthlyLoss * 0.35)
+export default function ProblemSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const inView = useInView(sectionRef, { once: true, margin: '-80px' })
 
   return (
-    <section id="about" className="py-24 px-6 md:px-12 lg:px-24 relative" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left column */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex flex-col gap-6"
-          >
-            <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 500, color: '#10B981', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-              THE PROBLEM
-            </p>
+    <section ref={sectionRef} style={{ background: '#F5F5F5', padding: '100px 48px', overflow: 'hidden' }} id="problem">
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
 
-            <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', color: 'var(--text)', letterSpacing: '-1.5px', lineHeight: 1.1 }}>
-              Your COD orders are<br />bleeding money.
-            </h2>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          style={{ marginBottom: 64 }}
+        >
+          <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase' as const, color: '#10B981', display: 'block', marginBottom: 16 }}>
+            THE PROBLEM
+          </span>
+          <h2 style={{
+            fontFamily: 'var(--font-syne)', fontWeight: 800,
+            fontSize: 'clamp(28px, 3.8vw, 52px)',
+            lineHeight: 1.1, letterSpacing: '-1.5px', color: '#0A0A0A', maxWidth: 580,
+          }}>
+            COD returns are costing you{' '}
+            <em style={{ fontFamily: 'var(--font-instrument-serif)', fontStyle: 'italic', fontWeight: 400, color: '#ef4444', textDecoration: 'underline', textDecorationColor: '#ef4444', textDecorationThickness: '2px', textUnderlineOffset: '6px', letterSpacing: '-0.5px' }}>
+              more than you think.
+            </em>
+          </h2>
+        </motion.div>
 
-            <div className="flex flex-col gap-4">
-              <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.8 }}>
-                60–75% of Indian D2C orders are COD. Of those, 25–35% return.
-                Each return costs you ₹180–240 in shipping, logistics, and restocking.
-              </p>
-              <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.8 }}>
-                A ₹10L/month brand with 30% RTO loses ₹50,000 every single month.
-                That&apos;s ₹6 lakh a year quietly draining your margins.
-              </p>
-            </div>
+        {/* Two columns */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }} className="cf-prob-grid">
 
-            {/* Stats */}
-            <div className="flex flex-col gap-3 mt-2">
+          {/* LEFT: stats */}
+          <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 36, marginBottom: 44 }}>
               {stats.map((s, i) => (
-                <div key={s.label} className="flex items-center gap-5 rounded-xl px-4 py-3" style={{ background: 'var(--bg-2)', border: '1px solid var(--border)' }}>
-                  <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', fontWeight: 700, color: 'var(--text-4)', minWidth: '20px' }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div style={{ width: '1px', height: '32px', background: 'var(--border)', flexShrink: 0 }} />
-                  <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '26px', fontWeight: 700, color: '#10B981', lineHeight: 1, minWidth: '80px' }}>
-                    {s.num}
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1, ease: 'easeOut' }}
+                >
+                  <div style={{
+                    fontFamily: 'var(--font-syne)', fontWeight: 800,
+                    fontSize: 'clamp(44px, 5vw, 64px)',
+                    letterSpacing: '-2px', color: '#0A0A0A', lineHeight: 1,
+                  }}>
+                    <CountUp to={s.value} prefix={s.prefix} suffix={s.suffix} />
                   </div>
-                  <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-2)' }}>
+                  <div style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 14, color: '#6B7280', lineHeight: 1.5, marginTop: 6, whiteSpace: 'pre-line' as const }}>
                     {s.label}
                   </div>
-                </div>
+                  {i < stats.length - 1 && <div style={{ width: 40, height: 1, background: '#e5e7eb', marginTop: 24 }} />}
+                </motion.div>
               ))}
             </div>
-          </motion.div>
 
-          {/* Right column — Calculator */}
+            <motion.a
+              href="#contact"
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.45, delay: 0.5 }}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                background: '#0A0A0A', color: '#fff',
+                fontFamily: 'var(--font-dm-sans)', fontWeight: 700, fontSize: 14,
+                padding: '13px 24px', borderRadius: 100, textDecoration: 'none',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+              }}
+            >
+              See your RTO cost →
+            </motion.a>
+          </div>
+
+          {/* RIGHT: tilted dashboard screenshot */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+            initial={{ opacity: 0, y: 32 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ perspective: '1200px' }}
           >
-            <div className="rounded-2xl p-7" style={{ background: 'var(--bg-2)', border: '1px solid var(--border)' }}>
-              <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, color: '#10B981', marginBottom: '20px' }}>
-                Calculate your RTO loss
-              </p>
-
-              <div className="flex flex-col gap-5">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)' }}>Monthly COD orders</label>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '13px', color: '#10B981' }}>{orders.toLocaleString()}</span>
-                  </div>
-                  <input type="range" min={100} max={10000} step={50} value={orders} onChange={(e) => setOrders(Number(e.target.value))} />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)' }}>Your RTO rate</label>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '13px', color: '#10B981' }}>{rtoRate}%</span>
-                  </div>
-                  <input type="range" min={5} max={60} step={1} value={rtoRate} onChange={(e) => setRtoRate(Number(e.target.value))} />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <label style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)' }}>Cost per return</label>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '13px', color: '#10B981' }}>₹{costPerRto}</span>
-                  </div>
-                  <input type="range" min={100} max={400} step={10} value={costPerRto} onChange={(e) => setCostPerRto(Number(e.target.value))} />
-                </div>
-
-                {/* Result */}
-                <div className="rounded-xl p-5 mt-2" style={{ background: 'var(--bg)', border: '1px solid var(--border)' }}>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-2)', marginBottom: '8px' }}>
-                    Your monthly RTO loss
-                  </p>
-                  <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '48px', fontWeight: 800, color: '#10B981', lineHeight: 1, marginBottom: '6px' }}>
-                    {formatINR(monthlyLoss)}
-                  </div>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-2)', marginBottom: '10px' }}>
-                    That&apos;s {formatINR(yearlyLoss)} / year
-                  </p>
-                  <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', fontWeight: 500, color: 'var(--text)' }}>
-                    CODFLIP recovers up to 35% of this = <span style={{ color: '#10B981' }}>{formatINR(recovery)}/month</span>
-                  </p>
-                </div>
-
-                <span
-                  style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: '#10B981', opacity: 0.6, cursor: 'not-allowed' }}
-                >
-                  Releasing soon on Shopify
-                </span>
-              </div>
+            <div style={{
+              transform: 'rotateY(-10deg) rotateX(3deg)',
+              transformStyle: 'preserve-3d',
+              borderRadius: 14,
+              overflow: 'hidden',
+              boxShadow: '0 32px 80px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.07)',
+            }}>
+              <img
+                src="/codflip_dashboard.png"
+                alt="CODFLIP RTO Cost Estimator dashboard"
+                style={{ width: '100%', display: 'block' }}
+              />
+            </div>
+            {/* Label below */}
+            <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#10B981', flexShrink: 0 }} />
+              <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 12, color: '#9ca3af' }}>
+                RTO Cost Estimator — see the exact cost of every COD order
+              </span>
             </div>
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 800px) {
+          .cf-prob-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+        }
+      `}</style>
     </section>
   )
 }
