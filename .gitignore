@@ -43,3 +43,11 @@ stitch/
 
 # leads data (switch to Google Sheets before production)
 /data/leads.json
+
+# playwright mcp temp files
+.playwright-mcp/
+playwright-mcp/
+
+# local research/analysis docs
+COMPETITORS.md
+LANDING_PAGE_BRIEF.md

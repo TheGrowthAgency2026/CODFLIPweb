@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             {isCodflip ? (
               <a href="/codflip" className="flex items-center gap-2">
-                <img src="/codflip-icon.svg" alt="CODFLIP" width={24} height={24} style={{ borderRadius: 6 }} />
+                <img src="/codflip_app_icon_1024x1024.png" alt="CODFLIP" width={24} height={24} style={{ borderRadius: 6 }} />
                 <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '18px' }}>
                   <span style={{ color: 'var(--text)' }}>COD</span>
                   <span style={{ color: '#10B981' }}>FLIP</span>
@@ -44,11 +44,6 @@ export default function Footer() {
               </a>
             ) : (
               <a href="/" className="flex items-center gap-2">
-                <div style={{ width: 24, height: 24, borderRadius: 6, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-                    <path d="M2 7h5M5 4.5l2.5 2.5L5 9.5" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
                 <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '16px', color: 'var(--text)' }}>
                   The Growth Agency
                 </span>

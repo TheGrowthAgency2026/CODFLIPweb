@@ -1,8 +1,0 @@
-<svg width="512" height="512" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="200" rx="46" fill="#10B981"/>
-  <circle cx="100" cy="116" r="52" fill="none" stroke="white" stroke-width="10"/>
-  <text x="100" y="135" text-anchor="middle" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="white">₹</text>
-  <circle cx="140" cy="58" r="26" fill="#064E3B"/>
-  <line x1="140" y1="72" x2="140" y2="46" stroke="white" stroke-width="5" stroke-linecap="round"/>
-  <polyline points="128,57 140,44 152,57" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

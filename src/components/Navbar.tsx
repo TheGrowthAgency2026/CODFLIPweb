@@ -60,7 +60,7 @@ export default function Navbar() {
         {/* Logo */}
         {isCodflip ? (
           <a href="/codflip" className="flex items-center gap-2 z-10">
-            <img src="/codflip-icon.svg" alt="CODFLIP" width={28} height={28} style={{ borderRadius: 7 }} />
+            <img src="/codflip_app_icon_1024x1024.png" alt="CODFLIP" width={28} height={28} style={{ borderRadius: 7 }} />
             <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '20px' }}>
               <span style={{ color: 'var(--text)' }}>COD</span>
               <span style={{ color: '#10B981' }}>FLIP</span>
@@ -68,23 +68,6 @@ export default function Navbar() {
           </a>
         ) : (
           <a href="/" className="flex items-center gap-2 z-10">
-            <div
-              style={{
-                width: 28,
-                height: 28,
-                borderRadius: 7,
-                background: 'rgba(16,185,129,0.12)',
-                border: '1px solid rgba(16,185,129,0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7h5M5 4.5l2.5 2.5L5 9.5" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
             <span style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '16px', color: 'var(--text)' }}>
               The Growth Agency
             </span>
