@@ -33,7 +33,7 @@ const orderVolumes = ['<500 orders/month', '500–2,000 orders/month', '2,000–
 
 export default function ContactSection() {
   const { ref, isInView } = useScrollReveal()
-  const [form, setForm] = useState({ storeName: '', name: '', email: '', volume: '', message: '' })
+  const [form, setForm] = useState({ storeName: '', name: '', email: '', phone: '', volume: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
@@ -169,6 +169,14 @@ export default function ContactSection() {
                     <label htmlFor="contact-email" style={labelStyle}>Email <span style={{ color: '#10B981' }}>*</span></label>
                     <input id="contact-email" type="email" required placeholder="you@store.com" value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle}
+                      onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-phone" style={labelStyle}>Phone Number</label>
+                    <input id="contact-phone" type="tel" placeholder="+91 98765 43210" value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })} style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
                       onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
