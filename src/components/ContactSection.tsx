@@ -31,13 +31,35 @@ const contactOptions = [
 
 const orderVolumes = ['<500 orders/month', '500–2,000 orders/month', '2,000–5,000 orders/month', '5,000+ orders/month']
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const PHONE_RE = /^[+]?[\d\s\-().]{7,15}$/
+
 export default function ContactSection() {
   const { ref, isInView } = useScrollReveal()
-  const [form, setForm] = useState({ storeName: '', name: '', email: '', phone: '', volume: '', message: '' })
+  const [form, setForm] = useState({ storeName: '', name: '', email: '', countryCode: '+91', phone: '', volume: '', message: '' })
+  const [errors, setErrors] = useState<{ email?: string; phone?: string }>({})
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const validateEmail = (val: string) => {
+    if (!val) return 'Email is required'
+    if (!EMAIL_RE.test(val)) return 'Enter a valid email address'
+    return ''
+  }
+
+  const validatePhone = (val: string) => {
+    if (!val) return ''
+    if (!PHONE_RE.test(val)) return 'Enter a valid phone number'
+    return ''
+  }
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault()
+    const emailErr = validateEmail(form.email)
+    const phoneErr = validatePhone(form.phone)
+    if (emailErr || phoneErr) {
+      setErrors({ email: emailErr, phone: phoneErr })
+      return
+    }
     setStatus('loading')
     try {
       const res = await fetch('/api/contact', {
@@ -167,19 +189,40 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <label htmlFor="contact-email" style={labelStyle}>Email <span style={{ color: '#10B981' }}>*</span></label>
-                    <input id="contact-email" type="email" required placeholder="you@store.com" value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })} style={inputStyle}
-                      onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
+                    <input id="contact-email" type="email" required placeholder="you@email.com" value={form.email}
+                      onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors((prev) => ({ ...prev, email: '' })) }}
+                      style={{ ...inputStyle, borderColor: errors.email ? '#f87171' : undefined }}
+                      onFocus={(e) => { e.target.style.borderColor = errors.email ? '#f87171' : '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
+                      onBlur={(e) => { const err = validateEmail(form.email); setErrors((prev) => ({ ...prev, email: err })); e.target.style.borderColor = err ? '#f87171' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
                     />
+                    {errors.email && <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: '#f87171', marginTop: '4px' }}>{errors.email}</p>}
                   </div>
                   <div>
                     <label htmlFor="contact-phone" style={labelStyle}>Phone Number</label>
-                    <input id="contact-phone" type="tel" placeholder="+91 98765 43210" value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })} style={inputStyle}
-                      onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
-                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
-                    />
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <select
+                        value={form.countryCode}
+                        onChange={(e) => setForm({ ...form, countryCode: e.target.value })}
+                        style={{ ...inputStyle, width: '100px', flexShrink: 0, cursor: 'pointer' }}
+                        onFocus={(e) => { e.target.style.borderColor = '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
+                        onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none' }}
+                      >
+                        <option value="+91">🇮🇳 +91</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+61">🇦🇺 +61</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+65">🇸🇬 +65</option>
+                        <option value="+60">🇲🇾 +60</option>
+                      </select>
+                      <input id="contact-phone" type="tel" placeholder="98765 43210" value={form.phone}
+                        onChange={(e) => { setForm({ ...form, phone: e.target.value }); setErrors((prev) => ({ ...prev, phone: '' })) }}
+                        style={{ ...inputStyle, flex: 1, borderColor: errors.phone ? '#f87171' : undefined }}
+                        onFocus={(e) => { e.target.style.borderColor = errors.phone ? '#f87171' : '#10B981'; e.target.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)' }}
+                        onBlur={(e) => { const err = validatePhone(form.phone); setErrors((prev) => ({ ...prev, phone: err })); e.target.style.borderColor = err ? '#f87171' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
+                      />
+                    </div>
+                    {errors.phone && <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: '#f87171', marginTop: '4px' }}>{errors.phone}</p>}
                   </div>
                   <div>
                     <label htmlFor="contact-volume" style={labelStyle}>Monthly COD orders</label>

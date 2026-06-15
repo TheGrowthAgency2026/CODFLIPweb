@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const { storeName, name, email, phone, volume, message } = await request.json()
+    const { storeName, name, email, countryCode, phone, volume, message } = await request.json()
 
     if (!storeName?.trim() || !name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -21,8 +21,8 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           'Lead Name': name.trim(),
           'Email': email.trim(),
-          'Phone': phone?.trim() || '',
-          'Company': storeName.trim(),
+          'Phone': phone?.trim() ? `${countryCode} ${phone.trim()}` : '',
+          'Company': storeName.trim(), // stores the store email
           'COD Volume': volume || '',
           'Message': message?.trim() || '',
           'Source': 6514597,
