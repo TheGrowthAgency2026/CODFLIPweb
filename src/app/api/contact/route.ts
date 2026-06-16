@@ -8,32 +8,38 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const created = new Date().toISOString().split('T')[0]
+    const messageBody = [
+      volume ? `COD Volume: ${volume}` : '',
+      message?.trim() || '',
+    ].filter(Boolean).join('\n\n')
+
+    const tableName = encodeURIComponent(process.env.AIRTABLE_TABLE_NAME || '')
 
     const res = await fetch(
-      `https://api.baserow.io/api/database/rows/table/${process.env.BASEROW_TABLE_ID}/?user_field_names=true`,
+      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${tableName}`,
       {
         method: 'POST',
         headers: {
-          Authorization: `Token ${process.env.BASEROW_TOKEN}`,
+          Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'Lead Name': name.trim(),
-          'Email': email.trim(),
-          'Phone': phone?.trim() ? `${countryCode} ${phone.trim()}` : '',
-          'Company': storeName.trim(), // stores the store email
-          'COD Volume': volume || '',
-          'Message': message?.trim() || '',
-          'Source': 6514597,
-          'Created': created,
+          fields: {
+            'Lead Name': name.trim(),
+            'Store Name': storeName.trim(),
+            'Email': email.trim(),
+            'Phone': phone?.trim() ? `${countryCode} ${phone.trim()}` : '',
+            'Message': messageBody,
+            'Lead Source': 'Website',
+            'Submission Timestamp': new Date().toISOString(),
+          },
         }),
       }
     )
 
     if (!res.ok) {
       const err = await res.text()
-      console.error('[baserow]', err)
+      console.error('[airtable]', err)
       return NextResponse.json({ error: 'Failed to save lead' }, { status: 500 })
     }
 
