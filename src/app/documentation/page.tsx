@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ChevronDown } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Documentation — CODFLIP by The Growth Agency',
@@ -276,22 +277,26 @@ export default function Documentation() {
 
         <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-14">
           {/* TOC */}
-          <nav
+          <details
+            className="group md:sticky md:top-[100px]"
+            open
             style={{
               border: '1px solid var(--border)',
               borderRadius: '12px',
               padding: '20px',
               background: 'var(--bg-2)',
               alignSelf: 'start',
-              position: 'sticky',
-              top: '100px',
               height: 'fit-content',
             }}
           >
-            <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
+            <summary
+              className="flex items-center justify-between cursor-pointer md:cursor-default list-none [&::-webkit-details-marker]:hidden [&::marker]:hidden"
+              style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '11px', fontWeight: 600, color: 'var(--text-3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}
+            >
               Contents
-            </p>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180 md:hidden" />
+            </summary>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '14px' }}>
               {toc.map((item) => (
                 <li key={item.id}>
                   <a
@@ -317,7 +322,7 @@ export default function Documentation() {
                 </li>
               ))}
             </ul>
-          </nav>
+          </details>
 
           {/* Content */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '52px', minWidth: 0 }}>
