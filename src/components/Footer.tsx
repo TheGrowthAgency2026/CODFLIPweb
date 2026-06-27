@@ -6,6 +6,7 @@ const productLinks = [
   { label: 'Features', href: '/codflip#features' },
   { label: 'Pricing', href: '/codflip#pricing' },
   { label: 'How It Works', href: '/codflip#how-it-works' },
+  { label: 'Documentation', href: '/documentation' },
   { label: 'Releasing soon on Shopify', href: '' },
 ]
 
