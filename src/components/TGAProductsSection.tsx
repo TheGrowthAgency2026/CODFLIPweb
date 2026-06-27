@@ -9,13 +9,13 @@ const highlights = [
   'WhatsApp Business API, TRAI compliant',
   'Free plan available, no credit card needed',
   'Works on all Shopify plans',
-  'Pay only on successful flips (3% commission)',
+  'Flat monthly pricing, no commission on orders',
 ]
 
 const metrics = [
   { num: '35%', label: 'RTO reduction' },
   { num: '3.1×', label: 'Average ROI' },
-  { num: '₹999', label: 'Pro plan / month (≈ $11.99)' },
+  { num: '₹1,199', label: 'Pro plan / month (≈ $13)' },
   { num: '2 min', label: 'Setup time' },
 ]
 
@@ -53,7 +53,7 @@ export default function TGAProductsSection() {
             </p>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', color: 'var(--text-2)', lineHeight: 1.8 }}>
               So we built CODFLIP. It scores every COD order for RTO risk, sends a targeted WhatsApp nudge,
-              and converts it to prepaid automatically. You pay only when we flip.
+              and converts it to prepaid automatically. Flat monthly pricing — no commission on your orders.
             </p>
 
             <div className="flex flex-col gap-3">

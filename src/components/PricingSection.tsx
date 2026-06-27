@@ -5,23 +5,24 @@ import { Check, Info } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const freeFeatures = [
-  'WhatsApp COD → Prepaid nudge',
-  'Flat % or ₹ discount',
-  'Basic send delay',
-  'Up to 50 COD orders per billing period',
-  'Conversion tracking',
+  'Automatic WhatsApp nudge after every COD order',
+  'Flat % or ₹ discount for paying online',
+  'Configurable nudge delay',
+  '20 WhatsApp messages/cycle, then ₹1.50/message',
+  'Conversion, conversion rate & delivery analytics',
   'RTO Cost Estimator',
 ]
 
 const proFeatures = [
-  'Unlimited COD orders',
-  '2-message sequence (main + reminder)',
-  'Smart incentive formula',
-  'Custom quiet hours',
-  'Offer expiry countdown',
+  '250 WhatsApp messages/cycle, then ₹1.20/message',
+  'Expiry Reminder before the discount link lapses',
+  'Variable discount formula (RTO risk + order value)',
+  'Quiet Hours — pause overnight, resume each morning',
   'Per-product timing rules',
-  'Checkout OTP gate',
-  'WhatsApp delivery tracking',
+  'Partial COD (advance online, balance on delivery)',
+  'COD Fee on cash-on-delivery orders',
+  'Per-product COGS sync for accurate margins',
+  'OTP verification before confirming a COD order',
   'Priority email support',
 ]
 
@@ -67,7 +68,7 @@ export default function PricingSection() {
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-3)' }}>/month</span>
             </div>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', color: 'var(--text-4)', marginBottom: '28px' }}>
-              Up to 50 COD orders/billing period
+              Free to install, no credit card required
             </p>
             <ul className="flex flex-col gap-3 mb-8 flex-1">
               {freeFeatures.map((f) => (
@@ -105,17 +106,17 @@ export default function PricingSection() {
               PRO
             </p>
             <div className="mb-1">
-              <span style={{ fontFamily: 'var(--font-syne)', fontSize: '44px', fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>₹999</span>
+              <span style={{ fontFamily: 'var(--font-syne)', fontSize: '44px', fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>₹1,199</span>
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '15px', color: 'var(--text-3)' }}>/month</span>
             </div>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '16px', fontWeight: 600, color: 'var(--text-2)', marginBottom: '20px' }}>
-              ≈ $11.99 / month
+              Billed as $13.00/month in USD
             </p>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, color: '#10B981', marginBottom: '4px' }}>
-              + 3% commission on every successful flip
+              No commission — flat monthly price
             </p>
             <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-4)', marginBottom: '28px' }}>
-              Charged on total order value of converted orders
+              250 messages included, then ₹1.20/message
             </p>
             <ul className="flex flex-col gap-3 mb-8 flex-1">
               {proFeatures.map((f) => (

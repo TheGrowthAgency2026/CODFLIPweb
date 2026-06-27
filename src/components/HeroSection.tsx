@@ -86,7 +86,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
               style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '18px', color: 'var(--text-2)', lineHeight: 1.7, maxWidth: '480px' }}
             >
-              CODFLIP scores every COD order for RTO risk, sends a targeted WhatsApp offer, and converts it to prepaid automatically. You pay only when we flip.
+              CODFLIP scores every COD order for RTO risk, sends a targeted WhatsApp offer, and converts it to prepaid automatically. Flat monthly pricing, starting free.
             </motion.p>
 
             {/* CTAs */}
@@ -125,7 +125,7 @@ export default function HeroSection() {
                 <OutcomeItem key={o.context} {...o} />
               ))}
               <span style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '12px', color: 'var(--text-4)', marginTop: '2px' }}>
-                Median across stores in the first 30 days · Pay 3% on successful flips only
+                Median across stores in the first 30 days · Flat monthly pricing, no commission
               </span>
             </motion.div>
           </div>

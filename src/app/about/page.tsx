@@ -105,9 +105,9 @@ const sections: Section[] = [
     list: [
       { term: 'Risk Scoring:', text: 'The order is scored for RTO risk based on order history, address data, product category, and order value. Only high-risk orders are targeted we do not send incentive messages to customers who would have paid COD without returning.' },
       { term: 'WhatsApp Message:', text: 'Within a configurable delay window (default: 10–20 minutes post-order), a WhatsApp message is sent to the customer offering a discount (flat ₹ or %) in exchange for switching to prepaid. A UPI/prepaid payment link is included directly in the message.' },
-      { term: 'Reminder Sequence:', text: 'If the customer does not act on the first message, a reminder is sent. If they still do not act, an urgency message with an expiring offer is sent. The full sequence runs across a configurable time window, with quiet hours enforced (no messages between 11 PM and 7 AM).' },
-      { term: 'Conversion:', text: 'When the customer pays via the link, the Shopify order automatically updates to prepaid, the discount is applied, and the flip is recorded. The merchant pays a 3% commission on the total order value of the converted order.' },
-      { term: 'Partial COD:', text: 'CODFLIP also offers a Partial COD mode where the customer pays 20% of the order value upfront via UPI to confirm intent, with the remaining 80% collected as COD on delivery. This reduces RTO risk on hesitant buyers without requiring full prepayment.' },
+      { term: 'Reminder Sequence:', text: 'On the Pro plan, if the customer does not act on the first message, an Expiry Reminder is sent shortly before the discount offer lapses. Quiet Hours (Pro) can hold outgoing messages overnight and release them each morning, and Per-Product Timing Rules (Pro) can override Quiet Hours for specific products, product types, or tags.' },
+      { term: 'Conversion:', text: 'When the customer pays via the link, the Shopify order automatically updates to prepaid, the discount is applied, and the flip is recorded. There is no commission on the order — CODFLIP is billed at a flat monthly rate plus a per-message charge only once your plan\'s message quota is used up.' },
+      { term: 'Partial COD:', text: 'CODFLIP also offers a Partial COD mode (Pro) where the customer pays a configurable percentage of the order value upfront via UPI to confirm intent, with the remainder collected as COD on delivery. This reduces RTO risk on hesitant buyers without requiring full prepayment.' },
     ],
   },
   {
@@ -117,8 +117,8 @@ const sections: Section[] = [
       'CODFLIP is available in two plans:',
     ],
     list: [
-      { term: 'Free Plan:', text: '₹0 ($0) per month. Includes the core COD-to-prepaid WhatsApp nudge, flat % or ₹ discount offers, basic send delay, up to 50 COD orders per billing period, conversion tracking, and the RTO Cost Estimator. No credit card required.' },
-      { term: 'Pro Plan:', text: '₹999 (approx. $11.99) per month + 3% commission on each successfully converted order\'s total value. Includes unlimited COD orders, a 3-message sequence (main, reminder, and urgency), smart incentive formula, custom quiet hours, offer expiry countdown, per-product timing rules, Checkout OTP gate, WhatsApp delivery tracking, and priority email support. A 7-day free trial is included on first activation.' },
+      { term: 'Free Plan:', text: '₹0 ($0) per month. Includes the core COD-to-prepaid WhatsApp nudge, flat % or ₹ discount offers, configurable send delay, conversion tracking, and the RTO Cost Estimator, with 20 WhatsApp messages included per billing cycle (₹1.50 per message after that). No credit card required.' },
+      { term: 'Pro Plan:', text: '₹1,199 per month, billed as $13.00/month in USD (≈ ₹1,199). No commission — everything in Free, plus 250 WhatsApp messages included per billing cycle at a lower overage rate of ₹1.20 per message, Expiry Reminder, the Variable Discount Formula, Quiet Hours, Per-Product Timing Rules, Partial COD, COD Fee, Per-Product COGS sync, OTP Verification, and priority email support. A 7-day free trial is included on first activation.' },
     ],
   },
   {

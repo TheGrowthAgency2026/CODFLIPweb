@@ -121,6 +121,25 @@ function Note({ label, children }: { label: string; children: React.ReactNode })
   )
 }
 
+function Example({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        marginTop: '14px',
+        padding: '12px 16px',
+        borderRadius: '8px',
+        background: 'var(--bg-3)',
+        borderLeft: '2px solid #10B981',
+      }}
+    >
+      <p style={{ ...pStyle, fontSize: '13.5px', margin: 0 }}>
+        <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Example. </strong>
+        {children}
+      </p>
+    </div>
+  )
+}
+
 function AnchorLink({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <a href={`#${id}`} style={{ color: '#10B981', textDecoration: 'none' }} className="hover-underline">
@@ -347,6 +366,16 @@ export default function Documentation() {
                 Cancelling Pro retains full Pro access until the current billing period ends, then the shop is moved
                 to Free automatically. No data is lost on downgrade.
               </p>
+              <Note label="No commission:">
+                Neither plan charges a percentage fee or per-order commission on converted orders. Pricing is a flat
+                monthly fee (₹0 on Free, ₹1,199 on Pro) plus the per-message overage rate once a billing cycle&apos;s
+                message quota is used up.
+              </Note>
+              <Example>
+                A Pro store sends 310 WhatsApp messages in a billing cycle. The first 250 are covered by the plan;
+                the remaining 60 are billed at ₹1.20 each (₹72 total), added to the ₹1,199 flat fee on the next
+                Shopify invoice.
+              </Example>
             </Section>
 
             <Section id="core" title="Core">
@@ -368,6 +397,10 @@ export default function Documentation() {
                   <AnchorLink id="expiry-reminder">Expiry Reminder</AnchorLink>,{' '}
                   <AnchorLink id="quiet-hours">Quiet Hours</AnchorLink>
                 </Note>
+                <Example>
+                  Delay is set to 2 hours with the default template. A customer places a COD order at 3:00 PM; at
+                  5:00 PM they receive a WhatsApp message with their discount and a one-tap UPI payment link.
+                </Example>
               </SubSection>
 
               <SubSection id="flat-discount" title="Flat Discount" plans={['Free', 'Pro']}>
@@ -385,6 +418,10 @@ export default function Documentation() {
                   On Pro, this can be replaced by the{' '}
                   <AnchorLink id="variable-discount-formula">Variable Discount Formula</AnchorLink>.
                 </p>
+                <Example>
+                  Type is set to Percentage at 10%. Every customer who switches from COD to prepaid sees the same
+                  10% discount applied automatically, regardless of order value or RTO risk.
+                </Example>
               </SubSection>
 
               <SubSection id="checkout-banner" title="Checkout Banner" plans={['Free', 'Pro']}>
@@ -400,6 +437,10 @@ export default function Documentation() {
                     'Orders converted this way do not also receive a post-order WhatsApp nudge.',
                   ]}
                 />
+                <Note label="Why this matters:">
+                  Converting at checkout is cheaper than converting after the fact — it uses zero WhatsApp message
+                  quota and skips RTO risk scoring entirely, since the order is never placed as COD.
+                </Note>
               </SubSection>
             </Section>
 
@@ -419,6 +460,13 @@ export default function Documentation() {
                 <p style={{ ...pStyle, marginTop: '12px' }}>
                   The quota resets every 30 days. Unused messages do not carry over to the next cycle.
                 </p>
+                <Note label="Billing:">
+                  Overage is invoiced automatically through the merchant&apos;s Shopify account at the end of each
+                  calendar month — there is no separate payment method to set up, and no order-value-based fee.
+                  Every message type counts against the quota, including <AnchorLink id="automatic-nudge">Automatic
+                  Nudge</AnchorLink>, <AnchorLink id="expiry-reminder">Expiry Reminder</AnchorLink>, and{' '}
+                  <AnchorLink id="otp-verification">OTP Verification</AnchorLink>.
+                </Note>
               </SubSection>
 
               <SubSection id="expiry-reminder" title="Expiry Reminder" plans={['Pro']}>
@@ -435,6 +483,11 @@ export default function Documentation() {
                 <Note label="Depends on:">
                   <AnchorLink id="automatic-nudge">Automatic Nudge</AnchorLink> being active.
                 </Note>
+                <Example>
+                  Offer validity is 24 hours and reminder lead time is 4 hours. A customer who receives the first
+                  nudge at 10:00 AM gets a reminder at 6:00 AM the next day, 4 hours before the discount lapses at
+                  10:00 AM.
+                </Example>
               </SubSection>
 
               <SubSection id="quiet-hours" title="Quiet Hours" plans={['Pro']}>
@@ -452,6 +505,10 @@ export default function Documentation() {
                 <Note label="Overridable by:">
                   <AnchorLink id="per-product-timing-rules">Per-Product Timing Rules</AnchorLink>.
                 </Note>
+                <Example>
+                  Quiet Hours is set from 11:00 PM to 7:00 AM. An order placed at 11:40 PM holds its nudge until
+                  7:00 AM the next morning instead of sending overnight.
+                </Example>
               </SubSection>
 
               <SubSection id="per-product-timing-rules" title="Per-Product Timing Rules" plans={['Pro']}>
@@ -466,6 +523,10 @@ export default function Documentation() {
                     ['Override behavior', 'Send immediately regardless of Quiet Hours'],
                   ]}
                 />
+                <Example>
+                  A flash-sale product is tagged <code>flash-sale</code>. Orders for that tag still get nudged at
+                  1:00 AM even while Quiet Hours is active, since time-sensitive offers lose value if delayed.
+                </Example>
               </SubSection>
             </Section>
 
@@ -493,6 +554,12 @@ export default function Documentation() {
                   <AnchorLink id="per-product-cogs">Per-Product COGS</AnchorLink> for margin-accurate ceilings (falls
                   back to an estimated margin if unavailable).
                 </Note>
+                <Example>
+                  A repeat customer in a low-risk postcode orders ₹1,200 of products with an estimated RTO cost of
+                  ₹210. The formula weighs the RTO cost against the order value and customer-type uplift, then caps
+                  the result against the order&apos;s margin ceiling — producing a discount of, say, ₹85, rounded to
+                  the nearest ₹5.
+                </Example>
               </SubSection>
 
               <SubSection id="per-product-cogs" title="Per-Product COGS" plans={['Pro']}>
@@ -500,6 +567,11 @@ export default function Documentation() {
                   Syncs per-variant cost of goods sold (COGS) from Shopify&apos;s inventory data, so the{' '}
                   <AnchorLink id="variable-discount-formula">Variable Discount Formula</AnchorLink> and RTO estimates
                   use real product margins instead of a single store-wide estimate.
+                </p>
+                <p style={{ ...pStyle, marginTop: '12px' }}>
+                  Without this synced, the formula falls back to a single estimated margin across the whole store,
+                  which can over- or under-discount products whose actual margins differ significantly from that
+                  average.
                 </p>
               </SubSection>
             </Section>
@@ -517,6 +589,10 @@ export default function Documentation() {
                   Shown as one of the payment options in the checkout payment picker, alongside Full Payment, Plain
                   COD, and COD with Fee.
                 </p>
+                <Example>
+                  Advance percentage is set to 30%. A ₹2,000 order requires a ₹600 UPI payment at checkout, with the
+                  remaining ₹1,400 collected as cash on delivery.
+                </Example>
               </SubSection>
 
               <SubSection id="cod-fee" title="COD Fee" plans={['Pro']}>
@@ -529,6 +605,11 @@ export default function Documentation() {
                   Appears as a separate line item at checkout. Tracked per order, separated by delivered vs. RTO
                   outcome.
                 </p>
+                <Note label="Why this matters:">
+                  Even a small COD fee (₹20–₹50) nudges price-sensitive customers toward the{' '}
+                  <AnchorLink id="checkout-banner">Checkout Banner</AnchorLink> prepaid offer, while offsetting some
+                  of the RTO cost on COD orders that go through anyway.
+                </Note>
               </SubSection>
 
               <SubSection id="otp-verification" title="OTP Verification" plans={['Pro']}>
@@ -544,6 +625,10 @@ export default function Documentation() {
                     'Verification rate tracked per shop.',
                   ]}
                 />
+                <Note label="Counts toward quota:">
+                  Each OTP sent is a WhatsApp message and draws down the same{' '}
+                  <AnchorLink id="message-quota">Message Quota</AnchorLink> as nudges and reminders.
+                </Note>
               </SubSection>
             </Section>
 
@@ -565,12 +650,24 @@ export default function Documentation() {
                   Pro shops additionally see checkout-feature performance: COD Fee revenue, Partial COD completion
                   rate, and OTP verification rate, for the current calendar month.
                 </p>
+                <Example>
+                  A store sends 400 nudges in a month and converts 92 of them. The dashboard shows a 23% conversion
+                  rate and totals the order value of those 92 converted orders as Revenue Recovered.
+                </Example>
               </SubSection>
 
               <SubSection id="cod-orders" title="COD Orders" plans={['Free', 'Pro']}>
                 <p style={pStyle}>
                   A log of every nudge, filterable by status (<code>pending</code>, <code>sent</code>,{' '}
                   <code>failed</code>, <code>skipped</code>). Each entry can be manually resent.
+                </p>
+                <p style={{ ...pStyle, marginTop: '12px' }}>
+                  <code>failed</code> typically means the WhatsApp message could not be delivered (invalid number,
+                  opted out, or API error); <code>skipped</code> means the order was excluded before sending — for
+                  example because it was already converted via the{' '}
+                  <AnchorLink id="checkout-banner">Checkout Banner</AnchorLink>, or fell inside{' '}
+                  <AnchorLink id="quiet-hours">Quiet Hours</AnchorLink> with no override rule. Manually resending an
+                  entry uses one message from the current cycle&apos;s quota.
                 </p>
               </SubSection>
 
@@ -586,6 +683,10 @@ export default function Documentation() {
                 <p style={{ ...pStyle, marginTop: '12px' }}>
                   Includes a per-order table with courier, COGS, incentive paid, net saving, and conversion status.
                 </p>
+                <Example>
+                  An order with an estimated RTO cost of ₹210 converts after a ₹85 discount is paid out. Net Savings
+                  for that order is ₹210 − ₹85 = ₹125.
+                </Example>
               </SubSection>
             </Section>
 
@@ -602,6 +703,27 @@ export default function Documentation() {
                 No code or developer involvement is required. All settings remain editable after setup, under
                 Features.
               </p>
+              <List
+                items={[
+                  <>
+                    <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Connecting WhatsApp</strong> uses the
+                    official WhatsApp Business API — the merchant&apos;s number stays under the merchant&apos;s own
+                    account and is never shared across shops (see{' '}
+                    <AnchorLink id="data-privacy">Data &amp; Privacy</AnchorLink>).
+                  </>,
+                  <>
+                    <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Choosing a discount</strong> on Free
+                    means setting a <AnchorLink id="flat-discount">Flat Discount</AnchorLink>; Pro stores can switch
+                    to the <AnchorLink id="variable-discount-formula">Variable Discount Formula</AnchorLink> at any
+                    time from Features without re-running setup.
+                  </>,
+                  <>
+                    <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Activating</strong> starts processing
+                    only new orders going forward — existing COD orders placed before activation are not
+                    retroactively nudged.
+                  </>,
+                ]}
+              />
             </Section>
 
             <Section id="data-privacy" title="Data & Privacy">
@@ -625,6 +747,11 @@ export default function Documentation() {
               <p style={{ ...pStyle, marginTop: '16px' }}>
                 WhatsApp credentials are stored per merchant and are never shared across shops.
               </p>
+              <Note label="Anonymized vs. deleted:">
+                A customer data deletion request anonymizes that customer&apos;s identifying fields (name, email,
+                phone) but keeps the order record itself for accounting purposes; an uninstall with no reinstall
+                within 30 days permanently deletes the underlying personal data instead.
+              </Note>
               <p style={{ ...pStyle, marginTop: '12px' }}>
                 For full details on how data is collected, used, and protected, see the{' '}
                 <a href="/privacy-policy" style={{ color: '#10B981', textDecoration: 'none' }} className="hover-underline">
@@ -645,6 +772,9 @@ export default function Documentation() {
                   ['Flip', 'Internal term for a converted (COD → prepaid) order'],
                   ['Quiet Hours', 'A configured window during which outbound messages are held, not sent'],
                   ['COGS', 'Cost of Goods Sold — per-product cost used in margin and discount calculations'],
+                  ['UPI', 'Unified Payments Interface — the instant payment rail used for one-tap discount links'],
+                  ['Message quota', 'The number of WhatsApp messages included per billing cycle before overage billing applies'],
+                  ['Overage', 'A message sent beyond the plan\'s included quota, billed per message'],
                 ]}
               />
             </Section>

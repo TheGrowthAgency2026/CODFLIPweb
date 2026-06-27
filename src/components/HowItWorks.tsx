@@ -21,8 +21,8 @@ const steps = [
   },
   {
     num: '04',
-    title: 'You pay on conversion',
-    body: '3% of flipped GMV. Zero flat fee risk. We win only when you win.',
+    title: 'Flat monthly pricing',
+    body: '₹0 to start, ₹1,199/month on Pro. No commission — you only pay for the WhatsApp messages you send.',
   },
 ]
 

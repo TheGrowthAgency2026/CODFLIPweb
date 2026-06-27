@@ -19,11 +19,15 @@ export const faqs = [
   },
   {
     q: 'Do I need to pay anything to start?',
-    a: 'No. CODFLIP has a free plan that includes the core COD-to-prepaid WhatsApp nudge, discount offers, conversion tracking, and the RTO Cost Estimator for up to 50 COD orders per billing period. No credit card is required to install.',
+    a: 'No. CODFLIP has a free plan that includes the core COD-to-prepaid WhatsApp nudge, discount offers, conversion tracking, and the RTO Cost Estimator, with 20 WhatsApp messages included per billing cycle. No credit card is required to install.',
   },
   {
     q: 'How is pricing structured?',
-    a: 'The free plan is always free. The Pro plan is ₹999 (approx. $11.99) per month plus a 3% fee on each order that is successfully converted to prepaid. You only pay the variable fee on conversions that actually happen, so the pricing stays aligned with the value you receive.',
+    a: 'The Free plan is ₹0/month with 20 WhatsApp messages included per billing cycle (₹1.50 per message after that). The Pro plan is ₹1,199 per month (billed as $13.00/month in USD) with 250 messages included per billing cycle at a lower overage rate of ₹1.20 per message, plus a 7-day free trial. There is no commission or per-order fee — you pay a flat monthly price plus only for messages beyond your quota.',
+  },
+  {
+    q: 'What happens if I use more WhatsApp messages than my plan includes?',
+    a: 'Messages beyond your plan\'s quota are billed automatically through your existing Shopify account at the overage rate for your plan: ₹1.50 per message on Free, ₹1.20 per message on Pro. No separate payment method is needed, and quotas reset every 30 days.',
   },
   {
     q: 'How long does setup take?',
