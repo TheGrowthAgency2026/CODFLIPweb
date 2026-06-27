@@ -255,7 +255,7 @@ export default function Documentation() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '56px' }} className="md:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-14">
           {/* TOC */}
           <nav
             style={{
