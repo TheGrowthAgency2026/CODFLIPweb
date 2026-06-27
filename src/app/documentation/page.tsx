@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ChevronDown } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Documentation — CODFLIP by The Growth Agency',
+  title: 'Documentation · CODFLIP by The Growth Agency',
 }
 
 type Plan = 'Free' | 'Pro'
@@ -266,12 +266,13 @@ export default function Documentation() {
             Documentation
           </h1>
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-4)' }}>
-            Last updated: April 2026
+            Last updated April 2026 · Written and maintained by the CODFLIP team
           </p>
           <p style={{ ...pStyle, fontSize: '16px', marginTop: '20px', maxWidth: '680px' }}>
-            FlipCOD (COD to Prepaid) is a Shopify app that converts Cash on Delivery orders to prepaid by sending
-            customers a discounted, one-tap payment link over WhatsApp. This page documents every feature, setting,
-            and dashboard available across the Free and Pro plans.
+            We built FlipCOD (COD to Prepaid) to turn Cash on Delivery orders into prepaid ones, automatically,
+            by sending customers a discounted, one-tap payment link over WhatsApp. We wrote this page ourselves,
+            feature by feature, so you can see exactly what each setting does before you turn it on, whether
+            you&apos;re on Free or Pro.
           </p>
         </div>
 
@@ -329,8 +330,9 @@ export default function Documentation() {
 
             <Section id="overview" title="Overview">
               <p style={pStyle}>
-                FlipCOD listens for new orders on a connected Shopify store. For every order placed as Cash on
-                Delivery (COD), it runs the following sequence:
+                Here&apos;s what happens behind the scenes: once FlipCOD is connected to your Shopify store, it
+                watches for new orders. For every order placed as Cash on Delivery (COD), it runs through the same
+                sequence:
               </p>
               <Table
                 headers={['Step', 'Action']}
@@ -342,12 +344,13 @@ export default function Documentation() {
                 ]}
               />
               <p style={{ ...pStyle, marginTop: '16px' }}>
-                A second, independent path operates at checkout, before an order is even placed: customers who
-                select COD see a banner offering an online-payment discount; accepting it applies a discount code
-                and completes checkout as prepaid.
+                There&apos;s a second path too, one that runs at checkout, before an order is even placed.
+                Customers who select COD see a banner offering an online-payment discount. If they accept it,
+                a discount code is applied automatically and checkout completes as prepaid.
               </p>
               <p style={{ ...pStyle, marginTop: '12px' }}>
-                Both paths write to the same conversion and analytics records.
+                Both paths feed the same conversion and analytics records, so your dashboard always shows the full
+                picture.
               </p>
             </Section>
 
@@ -356,7 +359,7 @@ export default function Documentation() {
                 headers={['', 'Free', 'Pro']}
                 rows={[
                   ['Price', '₹0/month', '₹1,199/month (~$13 USD)'],
-                  ['Trial', '—', '7 days'],
+                  ['Trial', 'No trial needed', '7 days'],
                   ['WhatsApp messages / billing cycle', '20', '250'],
                   ['Overage rate after quota', '₹1.50/message', '₹1.20/message'],
                   ['Billing cycle length', '30 days', '30 days'],
@@ -364,12 +367,12 @@ export default function Documentation() {
                 ]}
               />
               <p style={{ ...pStyle, marginTop: '16px' }}>
-                Overage is billed automatically through the merchant&apos;s existing Shopify account; no separate
-                payment method is collected.
+                Overage gets billed automatically through your existing Shopify account, so there&apos;s no
+                separate payment method to set up.
               </p>
               <p style={{ ...pStyle, marginTop: '12px' }}>
-                Cancelling Pro retains full Pro access until the current billing period ends, then the shop is moved
-                to Free automatically. No data is lost on downgrade.
+                If you cancel Pro, you keep full Pro access until the current billing period ends. After that, the
+                shop moves to Free automatically and nothing gets lost in the switch.
               </p>
               <Note label="No commission:">
                 Neither plan charges a percentage fee or per-order commission on converted orders. Pricing is a flat
@@ -384,7 +387,7 @@ export default function Documentation() {
             </Section>
 
             <Section id="core" title="Core">
-              <p style={pStyle}>Available on both plans.</p>
+              <p style={pStyle}>These three are available on every plan, including Free.</p>
 
               <SubSection id="automatic-nudge" title="Automatic Nudge" plans={['Free', 'Pro']}>
                 <p style={pStyle}>
@@ -410,7 +413,8 @@ export default function Documentation() {
 
               <SubSection id="flat-discount" title="Flat Discount" plans={['Free', 'Pro']}>
                 <p style={pStyle}>
-                  A fixed discount applied identically to every order — either a percentage or a flat ₹ amount.
+                  A fixed discount applied identically to every order. You can set it as a percentage or as a flat
+                  ₹ amount, whichever fits your margins better.
                 </p>
                 <Table
                   headers={['Setting', 'Description']}
@@ -443,8 +447,9 @@ export default function Documentation() {
                   ]}
                 />
                 <Note label="Why this matters:">
-                  Converting at checkout is cheaper than converting after the fact — it uses zero WhatsApp message
-                  quota and skips RTO risk scoring entirely, since the order is never placed as COD.
+                  Converting at checkout is cheaper than converting after the fact. It uses zero WhatsApp message
+                  quota and skips RTO risk scoring entirely, since the order is never placed as COD in the first
+                  place.
                 </Note>
               </SubSection>
             </Section>
@@ -467,9 +472,10 @@ export default function Documentation() {
                 </p>
                 <Note label="Billing:">
                   Overage is invoiced automatically through the merchant&apos;s Shopify account at the end of each
-                  calendar month — there is no separate payment method to set up, and no order-value-based fee.
-                  Every message type counts against the quota, including <AnchorLink id="automatic-nudge">Automatic
-                  Nudge</AnchorLink>, <AnchorLink id="expiry-reminder">Expiry Reminder</AnchorLink>, and{' '}
+                  calendar month. There&apos;s no separate payment method to set up, and no fee tied to order
+                  value. Every message type counts against the quota, including{' '}
+                  <AnchorLink id="automatic-nudge">Automatic Nudge</AnchorLink>,{' '}
+                  <AnchorLink id="expiry-reminder">Expiry Reminder</AnchorLink>, and{' '}
                   <AnchorLink id="otp-verification">OTP Verification</AnchorLink>.
                 </Note>
               </SubSection>
@@ -562,8 +568,8 @@ export default function Documentation() {
                 <Example>
                   A repeat customer in a low-risk postcode orders ₹1,200 of products with an estimated RTO cost of
                   ₹210. The formula weighs the RTO cost against the order value and customer-type uplift, then caps
-                  the result against the order&apos;s margin ceiling — producing a discount of, say, ₹85, rounded to
-                  the nearest ₹5.
+                  the result against the order&apos;s margin ceiling. Say that works out to a discount of ₹85,
+                  rounded to the nearest ₹5.
                 </Example>
               </SubSection>
 
@@ -667,12 +673,12 @@ export default function Documentation() {
                   <code>failed</code>, <code>skipped</code>). Each entry can be manually resent.
                 </p>
                 <p style={{ ...pStyle, marginTop: '12px' }}>
-                  <code>failed</code> typically means the WhatsApp message could not be delivered (invalid number,
-                  opted out, or API error); <code>skipped</code> means the order was excluded before sending — for
-                  example because it was already converted via the{' '}
+                  <code>failed</code> usually means the WhatsApp message couldn&apos;t be delivered (invalid
+                  number, opted out, or an API error). <code>skipped</code> means the order was excluded before it
+                  was ever sent, for example because it was already converted via the{' '}
                   <AnchorLink id="checkout-banner">Checkout Banner</AnchorLink>, or fell inside{' '}
-                  <AnchorLink id="quiet-hours">Quiet Hours</AnchorLink> with no override rule. Manually resending an
-                  entry uses one message from the current cycle&apos;s quota.
+                  <AnchorLink id="quiet-hours">Quiet Hours</AnchorLink> with no override rule in place. Manually
+                  resending an entry uses one message from the current cycle&apos;s quota.
                 </p>
               </SubSection>
 
@@ -701,31 +707,30 @@ export default function Documentation() {
                 rows={[
                   ['1', 'Connect a WhatsApp Business number'],
                   ['2', 'Choose a discount type (flat % / ₹, or Variable on Pro) and value'],
-                  ['3', 'Activate — enables messaging and starts processing new orders'],
+                  ['3', 'Activate, which turns on messaging and starts processing new orders'],
                 ]}
               />
               <p style={{ ...pStyle, marginTop: '16px' }}>
-                No code or developer involvement is required. All settings remain editable after setup, under
-                Features.
+                That&apos;s genuinely it. No code or developer involvement needed. Every setting stays editable
+                afterwards under Features, so nothing here is a one-time decision.
               </p>
               <List
                 items={[
                   <>
                     <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Connecting WhatsApp</strong> uses the
-                    official WhatsApp Business API — the merchant&apos;s number stays under the merchant&apos;s own
-                    account and is never shared across shops (see{' '}
-                    <AnchorLink id="data-privacy">Data &amp; Privacy</AnchorLink>).
+                    official WhatsApp Business API. Your number stays under your own account and is never shared
+                    across shops (see <AnchorLink id="data-privacy">Data &amp; Privacy</AnchorLink>).
                   </>,
                   <>
                     <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Choosing a discount</strong> on Free
-                    means setting a <AnchorLink id="flat-discount">Flat Discount</AnchorLink>; Pro stores can switch
+                    means setting a <AnchorLink id="flat-discount">Flat Discount</AnchorLink>. Pro stores can switch
                     to the <AnchorLink id="variable-discount-formula">Variable Discount Formula</AnchorLink> at any
-                    time from Features without re-running setup.
+                    time from Features, no need to redo setup.
                   </>,
                   <>
-                    <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Activating</strong> starts processing
-                    only new orders going forward — existing COD orders placed before activation are not
-                    retroactively nudged.
+                    <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Activating</strong> only starts
+                    processing new orders going forward. COD orders placed before activation won&apos;t get nudged
+                    retroactively.
                   </>,
                 ]}
               />
@@ -770,14 +775,14 @@ export default function Documentation() {
               <Table
                 headers={['Term', 'Definition']}
                 rows={[
-                  ['COD', 'Cash on Delivery — customer pays the courier at delivery instead of online'],
-                  ['RTO', 'Return to Origin — a COD order refused or undelivered, shipped back to the merchant'],
+                  ['COD', 'Cash on Delivery: the customer pays the courier at delivery instead of online'],
+                  ['RTO', 'Return to Origin: a COD order refused or undelivered, shipped back to the merchant'],
                   ['Nudge', 'The WhatsApp message offering a customer a discount to switch from COD to prepaid'],
                   ['Conversion', 'A COD order that switched to prepaid via nudge or checkout banner'],
-                  ['Flip', 'Internal term for a converted (COD → prepaid) order'],
+                  ['Flip', 'Our internal term for a converted (COD to prepaid) order'],
                   ['Quiet Hours', 'A configured window during which outbound messages are held, not sent'],
-                  ['COGS', 'Cost of Goods Sold — per-product cost used in margin and discount calculations'],
-                  ['UPI', 'Unified Payments Interface — the instant payment rail used for one-tap discount links'],
+                  ['COGS', 'Cost of Goods Sold, the per-product cost used in margin and discount calculations'],
+                  ['UPI', 'Unified Payments Interface, the instant payment rail behind our one-tap discount links'],
                   ['Message quota', 'The number of WhatsApp messages included per billing cycle before overage billing applies'],
                   ['Overage', 'A message sent beyond the plan\'s included quota, billed per message'],
                 ]}
