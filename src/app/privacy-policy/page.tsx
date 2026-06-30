@@ -62,7 +62,7 @@ const sections: Section[] = [
   {
     num: '',
     title: '',
-    body: 'We may use your Personal Data to contact you with information about the FlipCOD service, upcoming features, and related updates. You may opt out of receiving any or all communications from us by emailing us at support@thegrowthagency.in.',
+    body: 'We may use your Personal Data to contact you with information about the CODFlip service, upcoming features, and related updates. You may opt out of receiving any or all communications from us by emailing us at support@thegrowthagency.in.',
   },
   {
     num: '4b.',
@@ -89,7 +89,7 @@ const sections: Section[] = [
       'To gather analysis or valuable information so that we can improve our Service',
       'To monitor the usage of our Service',
       'To detect, prevent, and address technical issues',
-      'To contact you about the FlipCOD service and assess whether your store is eligible for onboarding',
+      'To contact you about the CODFlip service and assess whether your store is eligible for onboarding',
       'To carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection',
       'To provide you with notices about your account and/or subscription, including expiration and renewal notices',
       'For any other purpose with your consent',

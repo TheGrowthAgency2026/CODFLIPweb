@@ -266,10 +266,10 @@ export default function Documentation() {
             Documentation
           </h1>
           <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '14px', color: 'var(--text-4)' }}>
-            Last updated April 2026 · Written and maintained by the CODFLIP team
+            Last updated June 2026 · Written and maintained by the CODFLIP team
           </p>
           <p style={{ ...pStyle, fontSize: '16px', marginTop: '20px', maxWidth: '680px' }}>
-            We built FlipCOD (COD to Prepaid) to turn Cash on Delivery orders into prepaid ones, automatically,
+            We built CODFlip (COD to Prepaid) to turn Cash on Delivery orders into prepaid ones, automatically,
             by sending customers a discounted, one-tap payment link over WhatsApp. We wrote this page ourselves,
             feature by feature, so you can see exactly what each setting does before you turn it on, whether
             you&apos;re on Free or Pro.
@@ -330,7 +330,7 @@ export default function Documentation() {
 
             <Section id="overview" title="Overview">
               <p style={pStyle}>
-                Here&apos;s what happens behind the scenes: once FlipCOD is connected to your Shopify store, it
+                Here&apos;s what happens behind the scenes: once CODFlip is connected to your Shopify store, it
                 watches for new orders. For every order placed as Cash on Delivery (COD), it runs through the same
                 sequence:
               </p>
@@ -398,7 +398,7 @@ export default function Documentation() {
                   headers={['Setting', 'Description']}
                   rows={[
                     ['Delay', 'Time between order placement and message send (0–10 hours)'],
-                    ['Template', 'Default message, or a custom WhatsApp template'],
+                    ['Template', 'Default message or a custom WhatsApp template'],
                   ]}
                 />
                 <Note label="See also:">
@@ -568,8 +568,8 @@ export default function Documentation() {
                 <Example>
                   A repeat customer in a low-risk postcode orders ₹1,200 of products with an estimated RTO cost of
                   ₹210. The formula weighs the RTO cost against the order value and customer-type uplift, then caps
-                  the result against the order&apos;s margin ceiling. Say that works out to a discount of ₹85,
-                  rounded to the nearest ₹5.
+                  the result against the order&apos;s margin ceiling, working out to a discount of ₹85, rounded to
+                  the nearest ₹5.
                 </Example>
               </SubSection>
 
@@ -580,9 +580,9 @@ export default function Documentation() {
                   use real product margins instead of a single store-wide estimate.
                 </p>
                 <p style={{ ...pStyle, marginTop: '12px' }}>
-                  Without this synced, the formula falls back to a single estimated margin across the whole store,
-                  which can over- or under-discount products whose actual margins differ significantly from that
-                  average.
+                  If COGS isn&apos;t synced, the formula falls back to a single estimated margin across the whole
+                  store, which can over- or under-discount products whose actual margins differ significantly from
+                  that average.
                 </p>
               </SubSection>
             </Section>
@@ -658,8 +658,8 @@ export default function Documentation() {
                   ]}
                 />
                 <p style={{ ...pStyle, marginTop: '12px' }}>
-                  Pro shops additionally see checkout-feature performance: COD Fee revenue, Partial COD completion
-                  rate, and OTP verification rate, for the current calendar month.
+                  Pro shops additionally see checkout-feature performance for the current calendar month: COD Fee
+                  revenue, Partial COD completion rate, and OTP verification rate.
                 </p>
                 <Example>
                   A store sends 400 nudges in a month and converts 92 of them. The dashboard shows a 23% conversion
@@ -673,9 +673,9 @@ export default function Documentation() {
                   <code>failed</code>, <code>skipped</code>). Each entry can be manually resent.
                 </p>
                 <p style={{ ...pStyle, marginTop: '12px' }}>
-                  <code>failed</code> usually means the WhatsApp message couldn&apos;t be delivered (invalid
-                  number, opted out, or an API error). <code>skipped</code> means the order was excluded before it
-                  was ever sent, for example because it was already converted via the{' '}
+                  A <code>failed</code> status usually means the WhatsApp message couldn&apos;t be delivered
+                  (invalid number, opted out, or an API error). A <code>skipped</code> status means the order was
+                  excluded before it was ever sent, for example because it was already converted via the{' '}
                   <AnchorLink id="checkout-banner">Checkout Banner</AnchorLink>, or fell inside{' '}
                   <AnchorLink id="quiet-hours">Quiet Hours</AnchorLink> with no override rule in place. Manually
                   resending an entry uses one message from the current cycle&apos;s quota.
@@ -695,8 +695,8 @@ export default function Documentation() {
                   Includes a per-order table with courier, COGS, incentive paid, net saving, and conversion status.
                 </p>
                 <Example>
-                  An order with an estimated RTO cost of ₹210 converts after a ₹85 discount is paid out. Net Savings
-                  for that order is ₹210 − ₹85 = ₹125.
+                  An order with an estimated RTO cost of ₹210 converts after an ₹85 discount is paid out. Net
+                  Savings for that order is ₹210 − ₹85 = ₹125.
                 </Example>
               </SubSection>
             </Section>
@@ -725,7 +725,7 @@ export default function Documentation() {
                     <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Choosing a discount</strong> on Free
                     means setting a <AnchorLink id="flat-discount">Flat Discount</AnchorLink>. Pro stores can switch
                     to the <AnchorLink id="variable-discount-formula">Variable Discount Formula</AnchorLink> at any
-                    time from Features, no need to redo setup.
+                    time from Features, with no need to redo setup.
                   </>,
                   <>
                     <strong style={{ color: 'var(--text)', fontWeight: 600 }}>Activating</strong> only starts
@@ -742,7 +742,7 @@ export default function Documentation() {
                 rows={[
                   [
                     'App uninstalled',
-                    'Settings and order history retained 30 days, restorable on reinstall. Subscription is cancelled immediately.',
+                    'Settings and order history retained 30 days, restorable on reinstall. Subscription is canceled immediately.',
                   ],
                   [
                     '30 days after uninstall (no reinstall)',
@@ -781,9 +781,9 @@ export default function Documentation() {
                   ['Conversion', 'A COD order that switched to prepaid via nudge or checkout banner'],
                   ['Flip', 'Our internal term for a converted (COD to prepaid) order'],
                   ['Quiet Hours', 'A configured window during which outbound messages are held, not sent'],
-                  ['COGS', 'Cost of Goods Sold, the per-product cost used in margin and discount calculations'],
-                  ['UPI', 'Unified Payments Interface, the instant payment rail behind our one-tap discount links'],
-                  ['Message quota', 'The number of WhatsApp messages included per billing cycle before overage billing applies'],
+                  ['COGS', 'Cost of Goods Sold: the per-product cost used in margin and discount calculations'],
+                  ['UPI', 'Unified Payments Interface: the instant payment rail behind our one-tap discount links'],
+                  ['Message Quota', 'The number of WhatsApp messages included per billing cycle before overage billing applies'],
                   ['Overage', 'A message sent beyond the plan\'s included quota, billed per message'],
                 ]}
               />
