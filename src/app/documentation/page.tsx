@@ -330,7 +330,7 @@ export default function Documentation() {
 
             <Section id="overview" title="Overview">
               <p style={pStyle}>
-                Here&apos;s what happens behind the scenes: once CODFlip is connected to your Shopify store, it
+                Here&apos;s what happens behind the scenes: Once CODFlip is connected to your Shopify store, it
                 watches for new orders. For every order placed as Cash on Delivery (COD), it runs through the same
                 sequence:
               </p>
